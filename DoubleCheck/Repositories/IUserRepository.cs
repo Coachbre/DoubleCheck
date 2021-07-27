@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using DoubleCheck.Models;
 
-namespace Tabloid.Repositories
+namespace DoubleCheck.Repositories
 {
     public interface IUserRepository
     {

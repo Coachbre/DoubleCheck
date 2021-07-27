@@ -7,6 +7,7 @@ using Microsoft.Data.SqlClient;
 namespace DoubleCheck.Repositories
 {
     public class UserRepository : BaseRepository, IUserRepository
+        // weill be removed when I finish all others ^^
     {
         public UserRepository(IConfiguration configuration) : base(configuration) { }
 
@@ -31,10 +32,10 @@ namespace DoubleCheck.Repositories
                     {
                         user = new User()
                         {
-                            Id = DbUtils.GetInt(reader, "Id"),
-                            FirebaseUserId = DbUtils.GetString(reader, "firebaseUserId"),
-                            Name = DbUtils.GetString(reader, "name"),
-                            Email = DbUtils.GetString(reader, "email"),
+                            id = DbUtils.GetInt(reader, "Id"),
+                            firebaseUserId = DbUtils.GetString(reader, "firebaseUserId"),
+                            name = DbUtils.GetString(reader, "name"),
+                            email = DbUtils.GetString(reader, "email"),
                         };
                     }
                     reader.Close();
