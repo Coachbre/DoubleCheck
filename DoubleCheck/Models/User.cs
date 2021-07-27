@@ -6,6 +6,7 @@ namespace DoubleCheck.Models
     public class User
     {
         public int id { get; set; }
+        //denotes the type (int) property name (id) and that it is NOT read-only
 
         [Required]
         [StringLength(28, MinimumLength = 28)]
