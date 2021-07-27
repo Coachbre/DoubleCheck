@@ -1,11 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using DoubleCheck.Models;
 
-namespace DoubleCheck.Repositories
+namespace Tabloid.Repositories
 {
-    interface IUserRepository
+    public interface IUserRepository
     {
+        void Add(User user);
+        User GetByFirebaseUserId(string firebaseUserId);
+
+        User GetByUserId(int id);
+
+        List<User> GetAll();
+
+        List<User> GetAllDeactivated();
+
+        void Update(User user);
     }
 }
