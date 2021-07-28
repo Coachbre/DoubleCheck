@@ -6,7 +6,6 @@ using DoubleCheck.Utils;
 namespace DoubleCheck.Repositories
 {
     public class UserRepository : BaseRepository, IUserRepository
-        // will be removed when I finish all others ^^
     {
         public UserRepository(IConfiguration configuration) : base(configuration) { }
 
