@@ -11,10 +11,6 @@ namespace DoubleCheck.Repositories
 
         //User GetByUserId(int id);
 
-        //List<User> GetAll();
-
-        //List<User> GetAllDeactivated();
-
         //void Update(User user); 
 
         // ^^^ will uncomment as methods fully are written and called on

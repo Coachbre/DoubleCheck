@@ -30,10 +30,10 @@ namespace DoubleCheck.Repositories
                     {
                         user = new User()
                         {
-                            id = DbUtils.GetInt(reader, "Id"),
-                            firebaseUserId = DbUtils.GetString(reader, "firebaseUserId"),
-                            name = DbUtils.GetString(reader, "name"),
-                            email = DbUtils.GetString(reader, "email"),
+                            Id = DbUtils.GetInt(reader, "id"),
+                            FirebaseUserId = DbUtils.GetString(reader, "firebaseUserId"),
+                            Name = DbUtils.GetString(reader, "name"),
+                            Email = DbUtils.GetString(reader, "email"),
                         };
                     }
                     reader.Close();
@@ -53,11 +53,11 @@ namespace DoubleCheck.Repositories
                     cmd.CommandText = @"INSERT INTO User (firebaseUserId, name, email)
                                         OUTPUT INSERTED.ID
                                         VALUES (@firebaseUserId, @name, @email)";
-                    DbUtils.AddParameter(cmd, "@firebaseUserId", user.firebaseUserId);
-                    DbUtils.AddParameter(cmd, "@name", user.name);
-                    DbUtils.AddParameter(cmd, "@email", user.email);
+                    DbUtils.AddParameter(cmd, "@firebaseUserId", user.FirebaseUserId);
+                    DbUtils.AddParameter(cmd, "@name", user.Name);
+                    DbUtils.AddParameter(cmd, "@email", user.Email);
 
-                    user.id = (int)cmd.ExecuteScalar();
+                    user.Id = (int)cmd.ExecuteScalar();
                 }
             }
         }

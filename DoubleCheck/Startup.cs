@@ -22,7 +22,8 @@ namespace DoubleCheck
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-       //add transients here!!
+            //add transients here!!
+            services.AddTransient<IUserRepository, UserRepository>();
 
 
             var firebaseProjectId = Configuration.GetValue<string>("FirebaseProjectId");

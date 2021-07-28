@@ -26,7 +26,7 @@ export default function ApplicationViews({ isLoggedIn }) {
 
 
 
-                <Route exact path="/tags">
+                {/* <Route exact path="/tags">
 
                     {isLoggedIn  ? (
                         <TagList />
@@ -50,7 +50,7 @@ export default function ApplicationViews({ isLoggedIn }) {
                 <Route path="/comment/:postId(\d+)">
                     <CommentAddForm />
                 </Route>
-              
+               */}
             </Switch>
         </main>
     );

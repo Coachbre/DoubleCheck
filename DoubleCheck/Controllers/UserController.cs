@@ -43,7 +43,7 @@ namespace DoubleCheck.Controllers
         {
             _userRepository.Add(user);
             return CreatedAtAction(
-                nameof(GetByFirebaseUserId), new { firebaseUserId = user.firebaseUserId }, user);
+                nameof(GetByFirebaseUserId), new { firebaseUserId = user.FirebaseUserId }, user);
         }
     }
 }
