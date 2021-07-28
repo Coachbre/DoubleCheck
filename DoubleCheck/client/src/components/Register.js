@@ -10,27 +10,44 @@ export default function Register() {
 
     const [name, setName] = useState();
     const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [confirmPassword, setConfirmPassword] = useState();
 
     const registerClick = (e) => {
+        
         e.preventDefault();
-            const userProfile = { name, email };
-            register(userProfile)
+        if (password && password !== confirmPassword) {
+            alert("Passwords don't match. Do better.");
+        } else {
+            const user = { name, email };
+            register(user, password)
                 .then(() => history.push("/"));
+        }
     };
 
     return (
         <Form onSubmit={registerClick} className="form">
             {/* <img className="logo1" src={logo1} alt="logo1" /> */}
-            <fieldset className="loginform">
 
+            <fieldset className="loginform">
+                <FormGroup>
+                    <Label htmlFor="name">Name</Label>
+                    <Input id="name" type="text" onChange={e => setName(e.target.value)} />
+                </FormGroup>
+              
                 <FormGroup>
                     <Label for="email">Email</Label>
                     <Input id="email" type="text" onChange={e => setEmail(e.target.value)} />
                 </FormGroup>
 
                 <FormGroup>
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="firstName" type="text" onChange={e => setName(e.target.value)} />
+                    <Label for="password">Password</Label>
+                    <Input id="password" type="password" onChange={e => setPassword(e.target.value)} />
+                </FormGroup>
+
+                <FormGroup>
+                    <Label for="confirmPassword">Confirm Password</Label>
+                    <Input id="confirmPassword" type="password" onChange={e => setConfirmPassword(e.target.value)} />
                 </FormGroup>
 
                 <FormGroup>

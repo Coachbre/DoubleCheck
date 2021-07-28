@@ -14,5 +14,6 @@ namespace DoubleCheck.Repositories
         //void Update(User user); 
 
         // ^^^ will uncomment as methods fully are written and called on
+        //dont run w/ build errors (runs off last successful build)
     }
 }

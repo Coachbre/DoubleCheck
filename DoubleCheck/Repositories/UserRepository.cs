@@ -17,10 +17,10 @@ namespace DoubleCheck.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT User.id, User.name, User.email, User.email, User.firebaseUserId
-                          FROM User
+                        SELECT [User].id, [User].name, [User].email, [User].firebaseUserId
+                          FROM [User]
                          WHERE firebaseUserId = @firebaseuserId";
- // **** MAY NEED LEFT JOIN ^
+ // **** Brackets required around 'User'
                     DbUtils.AddParameter(cmd, "@firebaseUserId", firebaseUserId);
 
                     User user = null;
@@ -50,14 +50,14 @@ namespace DoubleCheck.Repositories
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"INSERT INTO User (firebaseUserId, name, email)
+                    cmd.CommandText = @"INSERT INTO [User] (firebaseUserId, name, email)
                                         OUTPUT INSERTED.ID
                                         VALUES (@firebaseUserId, @name, @email)";
                     DbUtils.AddParameter(cmd, "@firebaseUserId", user.FirebaseUserId);
                     DbUtils.AddParameter(cmd, "@name", user.Name);
                     DbUtils.AddParameter(cmd, "@email", user.Email);
 
-                    user.Id = (int)cmd.ExecuteScalar();
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

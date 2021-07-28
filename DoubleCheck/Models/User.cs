@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-//models mirror the databaseand define each object (with properties pulled from table)
-// easier to user uppercase first letters in column names (for future ref)
+//models mirror the database and define each object (with properties pulled from table)
+// easier to use uppercase first letters in column names (for future ref)
 
 namespace DoubleCheck.Models
 {
@@ -20,5 +20,6 @@ namespace DoubleCheck.Models
         [Required]
         [MaxLength(255)]
         public string Email { get; set; }
+
     }
 }
