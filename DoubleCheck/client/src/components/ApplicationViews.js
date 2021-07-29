@@ -16,9 +16,9 @@ export default function ApplicationViews({ isLoggedIn }) {
                     {isLoggedIn ? <PantryList /> : <Redirect to="/login" />}
                 </Route>
 
-                <Route path="/pantry/:id(\d+)/items" exact>
+                {/* <Route path="/pantry/:id(\d+)/items" exact>
                     {isLoggedIn ? <PantryItems /> : <Redirect to="/login" />}
-                </Route>
+                </Route> */}
 
                 {/*<Route exact path="/tags/add">
 

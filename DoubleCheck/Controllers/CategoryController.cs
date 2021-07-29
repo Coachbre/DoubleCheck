@@ -20,12 +20,12 @@ namespace DoubleCheck.Controllers
         {
             _categoryRepository = categoryRepository;
         }
+        // ^ converts from private to usable
 
-        // GET: api/<CategoryController>
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_categoryRepository = categoryRepository;
+            return Ok(_categoryRepository.GetAll());
         }
 
         // GET api/<CategoryController>/5

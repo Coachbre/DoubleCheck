@@ -9,6 +9,7 @@ namespace DoubleCheck.Repositories
     {
         List<PantryList> GetAll();
         PantryList GetById(int id);
+        PantryList GetAllPantriesFromUser(int currentUserId);
         void Delete(int id);
     }
 }

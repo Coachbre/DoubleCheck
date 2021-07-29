@@ -8,7 +8,8 @@ namespace DoubleCheck.Repositories
     public interface ICategoryRepository
         //allows interface to be accessible
     {
-        List<CategoryRepository> GetAll();
+        List<Category> GetAll();
+
         //Category GetById(int id);
     }
 }

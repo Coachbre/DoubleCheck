@@ -17,7 +17,7 @@ export const getAllPantries = () => {
                 if (res.ok) {
                     return res.json();
                 } else {
-                    throw new Error("An unknown error occurred while trying to get pantries bro");
+                    throw new Error("An unknown error occurred while trying to get pantries bro.");
                 }
             });
     });

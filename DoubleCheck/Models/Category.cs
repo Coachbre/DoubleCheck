@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DoubleCheck.Repositories
 {
-    public class CategoryRepository
+    public class Category
     {
         public int Id { get; set; }
 
