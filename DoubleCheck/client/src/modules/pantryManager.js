@@ -2,7 +2,7 @@
 
 import { getToken } from './authManager';
 
-const baseUrl = '/api/pantries';
+const baseUrl = '/api/PantryList';
 //^ this is a relative URL (benefit of using a proxy)
 
 export const getAllPantries = () => {
@@ -17,7 +17,7 @@ export const getAllPantries = () => {
                 if (res.ok) {
                     return res.json();
                 } else {
-                    throw new Error("An unknown error occurred while trying to get Tags bro.");
+                    throw new Error("An unknown error occurred while trying to get pantries bro");
                 }
             });
     });

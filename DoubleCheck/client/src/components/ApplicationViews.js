@@ -5,7 +5,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
-import Pantry from "./Pantry";
+import PantryList from "./PantryList";
 
 export default function ApplicationViews({ isLoggedIn }) {
     return (
@@ -13,7 +13,7 @@ export default function ApplicationViews({ isLoggedIn }) {
         <main>
             <Switch>
                 <Route path="/" exact>
-                    {isLoggedIn ? <Pantry /> : <Redirect to="/login" />}
+                    {isLoggedIn ? <PantryList /> : <Redirect to="/login" />}
                 </Route>
 
                 {/*<Route exact path="/tags/add">
