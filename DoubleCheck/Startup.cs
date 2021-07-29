@@ -24,6 +24,7 @@ namespace DoubleCheck
         {
             //add transients here!!
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IPantryListRepository, PantryListRepository>();
 
 
             var firebaseProjectId = Configuration.GetValue<string>("FirebaseProjectId");

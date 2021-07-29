@@ -20,7 +20,7 @@ namespace DoubleCheck.Repositories
                         SELECT [User].id, [User].name, [User].email, [User].firebaseUserId
                           FROM [User]
                          WHERE firebaseUserId = @firebaseuserId";
- // **** Brackets required around 'User'
+ // **** Brackets required around 'User' (reserved) better to name table userProfile
                     DbUtils.AddParameter(cmd, "@firebaseUserId", firebaseUserId);
 
                     User user = null;
