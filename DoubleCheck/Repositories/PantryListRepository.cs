@@ -51,7 +51,8 @@ namespace DoubleCheck.Repositories
                     cmd.CommandText = @"
                                         SELECT PantryList.id, 
                                             PantryList.name 
-                                            FROM PantryList WHERE PantryList.id = @Id";
+                                            FROM PantryList
+                                            WHERE PantryList.id = @Id";
                     //aliases should NOT be used in join statements-
                     //using an alias (AS) renames the column to avoid duplicate column names between tables
 
@@ -71,6 +72,20 @@ namespace DoubleCheck.Repositories
                     reader.Close();
 
                     return pantryList;
+                }
+            }
+        }
+
+        public void Delete(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM Pantry WHERE Id = @Id";
+                    DbUtils.AddParameter(cmd, "@Id", id);
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

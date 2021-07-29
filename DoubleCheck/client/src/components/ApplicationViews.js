@@ -5,16 +5,16 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
-// import Pantry from "./Pantry";
+import Pantry from "./Pantry";
 
 export default function ApplicationViews({ isLoggedIn }) {
     return (
             //EXACT PATH can be used when routes begin the same
         <main>
             <Switch>
-                {/* <Route path="/" exact>
+                <Route path="/" exact>
                     {isLoggedIn ? <Pantry /> : <Redirect to="/login" />}
-                </Route> */}
+                </Route>
 
                 {/*<Route exact path="/tags/add">
 

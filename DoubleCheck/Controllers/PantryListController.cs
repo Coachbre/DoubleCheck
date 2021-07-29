@@ -52,8 +52,10 @@ namespace DoubleCheck.Controllers
 
         // DELETE api/<PantryListController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            _pantryListRepository.Delete(id);
+            return NoContent();
         }
     }
 }
