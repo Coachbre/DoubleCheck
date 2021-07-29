@@ -16,6 +16,10 @@ export default function ApplicationViews({ isLoggedIn }) {
                     {isLoggedIn ? <PantryList /> : <Redirect to="/login" />}
                 </Route>
 
+                <Route path="/pantry/:id(\d+)/items" exact>
+                    {isLoggedIn ? <PantryItems /> : <Redirect to="/login" />}
+                </Route>
+
                 {/*<Route exact path="/tags/add">
 
                     {isLoggedIn  ? (
@@ -25,12 +29,12 @@ export default function ApplicationViews({ isLoggedIn }) {
                     )}
                 </Route>
                 
-                <Route path="/comment/GetByPostId/:postId(\d+)">
-                    {isLoggedIn ? <CommentList /> : <Redirect to="/login" />}
-                </Route>
-                <Route path="/comment/:postId(\d+)">
-                    <CommentAddForm />
-                </Route>
+                // <Route path="/comment/GetByPostId/:postId(\d+)">
+                //     {isLoggedIn ? <CommentList /> : <Redirect to="/login" />}
+                // </Route>
+                // <Route path="/comment/:postId(\d+)">
+                //     <CommentAddForm />
+                // </Route>
                */}
 
                 <Route path="/login">

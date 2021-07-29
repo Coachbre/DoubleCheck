@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, CardBody, Card } from "reactstrap";
 import Pantry from './Pantry';
-import { getAllPantries, deletePantry } from "../modules/pantryManager";
+import { getAllPantries, viewItems, deletePantry } from "../modules/pantryManager";
 
 const PantryList = () => {
     const [pantries, setPantries] = useState([]);
@@ -33,11 +33,11 @@ const PantryList = () => {
                 {pantries.map((pantry) => {
                     return (
                     <Card>
+                        <Link to="/pantry/${id}/items">
                         <CardBody>
-                            <Button>
                             <Pantry pantry={pantry} key={pantry.id} />
-                            </Button>
                         </CardBody>
+                            </Link>
                             <Button onClick={deleteSelectedPantry}>Delete</Button>
                     </Card>
                         // ^ pantry={pantry} is a prop, which allows the PantryList.js file to access objects/functions
