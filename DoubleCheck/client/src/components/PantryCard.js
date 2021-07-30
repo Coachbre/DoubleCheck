@@ -3,13 +3,12 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { deletePantry, getPantryById } from "../modules/pantryManager";
 
-const Pantry = ({ pantry }) => {
-
-
+const PantryCard = ({ pantry }) => {
+    
     return (
         <div>
             <p key={pantry?.id}>{pantry?.name}</p>
         </div>
     );
 };
-export default Pantry;
+export default PantryCard;

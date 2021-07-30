@@ -3,22 +3,15 @@
 import { getToken } from './authManager';
 
 const baseUrl = '/api/FoodItem';
-// matches table name
 
-export const getAllFoodItems = (PantryListId) => {
+export const getAllFoodItems = (pantryListId) => {
     return getToken().then((token) => {
-        return fetch(`${baseUrl}/${PantryListId}`, {
+        return fetch(`${baseUrl}/GetByPantry/${pantryListId}`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         })
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    throw new Error("An unknown error occurred while trying to get pantry contents");
-                }
-            });
+            .then((res) => res.json());
     });
 };

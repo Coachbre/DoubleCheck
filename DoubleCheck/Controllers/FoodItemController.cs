@@ -22,10 +22,15 @@ namespace DoubleCheck.Controllers
         }
 
 
-        [HttpGet]
-        public IActionResult Get(int PantryListId)
+        [HttpGet("GetByPantry/{PantryListId}")]
+        public IActionResult GetByPantry(int PantryListId)
         {
-            return Ok(_foodItemRepository.GetAll(PantryListId));
+            var foodItems = _foodItemRepository.GetAll(PantryListId);
+            if (foodItems == null)
+            {
+                return NotFound();
+            }
+            return Ok(foodItems);
         }
 
         //        // GET api/<FoodItemController>/5

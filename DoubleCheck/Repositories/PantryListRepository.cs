@@ -50,7 +50,8 @@ namespace DoubleCheck.Repositories
                 {
                     cmd.CommandText = @"
                                         SELECT PantryList.id, 
-                                            PantryList.name 
+                                            PantryList.name,
+                                            PantryList.userId
                                             FROM PantryList
                                             WHERE PantryList.id = @Id";
                     //aliases should NOT be used in join statements-
@@ -66,7 +67,8 @@ namespace DoubleCheck.Repositories
                         pantryList = new PantryList()
                         {
                             Id = id,
-                            Name = DbUtils.GetString(reader, "name")
+                            Name = DbUtils.GetString(reader, "name"),
+                            UserId = DbUtils.GetInt(reader, "userId")
                         };
                     }
                     reader.Close();

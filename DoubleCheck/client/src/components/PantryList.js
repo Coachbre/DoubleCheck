@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { Button, CardBody, Card } from "reactstrap";
-import Pantry from './Pantry';
-import { getAllPantries, getByUser, viewItems, deletePantry } from "../modules/pantryManager";
+import PantryCard from './PantryCard';
+import { getByUser, deletePantry } from "../modules/pantryManager";
 
 const PantryList = () => {
     const [pantries, setPantries] = useState([]);
-    // ^initially set to an empty array
+
     const getPantries = () => {
         getByUser().then(pantries => setPantries(pantries));
     };
@@ -33,9 +33,9 @@ const PantryList = () => {
                 {pantries.map((pantry) => {
                     return (
                     <Card>
-                        <Link to="/pantryItems">
+                            <Link to={`/pantry/${pantry.id}`}>
                         <CardBody>
-                            <Pantry pantry={pantry} key={pantry.id} />
+                            <PantryCard pantry={pantry} key={pantry.id} />
                         </CardBody>
                             </Link>
                             {/* <Button onClick={deleteSelectedPantry}>Delete</Button> */}
