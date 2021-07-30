@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Button } from "reactstrap";
 import FoodItemCard from './FoodItemCard';
 import { getAllFoodItems } from "../modules/foodItemManager";
 
@@ -20,17 +21,12 @@ const FoodItemList = () => {
     return (
 
         <div className="container">
+                <Button onClick={deleteItem()}>Add Item</Button>
             <div className="row justify-content-center">
                 <table>
                     <tr>
-                    <th>Item</th>
-                    <th>Quantity</th>
-                    <th>Notes</th>
-                    </tr>
-                    <tr>
                     {foodItems.map((foodItem) => {
                         return (
-
                             <FoodItemCard foodItem={foodItem} key={foodItem.id} />
                         )
                     }

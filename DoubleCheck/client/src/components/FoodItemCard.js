@@ -5,15 +5,21 @@ const FoodItemCard = ({ foodItem }) => {
     return (
         <Card>
             <CardBody>
-
-                        <td>{foodItem.name}</td>
-                        <td>{foodItem?.quantity}</td>
-                        <td>{foodItem?.notes}</td>
-                        {/* <li>Category: {foodItem?.categoryId}</li> */}
-
+                {/* <li>Category: {foodItem?.categoryId}</li> */}
+                <div>
+                    <td>{foodItem.name}: {foodItem?.quantity}</td>
+                </div>
+                <div>
+                    <td>Notes: {foodItem?.notes}</td>
+                </div>
+                <div>
+            <Button>Update</Button>
+            </div>
+            <div>
+            <Button>Delete</Button>
+            </div>
             </CardBody>
-            {/* <Button onClick={editSelectedFoodItem}>Update</Button> */}
-            {/* <Button onClick={deleteSelectedFoodItem}>Delete</Button> */}
+            {/* ^^^^ onClick={event to complete} will be needed */}
         </Card>
     );
 };
