@@ -30,7 +30,8 @@ namespace DoubleCheck.Repositories
                                 FROM FoodItem 
                                         LEFT JOIN PantryList
                                         ON FoodItem.pantryListId = PantryList.id
-                                        WHERE PantryListId = @PantryListId";
+                                        WHERE PantryListId = @PantryListId
+                                        ORDER BY [name]";
                     //stretch goal: join category for name onto table
 
                     DbUtils.AddParameter(cmd, "@PantryListId", PantryListId);
