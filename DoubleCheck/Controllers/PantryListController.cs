@@ -14,7 +14,8 @@ namespace DoubleCheck.Controllers
     public class PantryListController : ControllerBase
     {
         private readonly IPantryListRepository _pantryListRepository;
-        public PantryListController(IPantryListRepository pantryListRepository IUserRepository user)
+        private readonly IUserRepository _userRepository;
+        public PantryListController(IPantryListRepository pantryListRepository, IUserRepository userRepository)
         {
             _pantryListRepository = pantryListRepository;
             _userRepository = userRepository;
@@ -39,27 +40,34 @@ namespace DoubleCheck.Controllers
         }
 
         // Get the current user
-        [HttpGet("myPantries/")]
-        public IActionResult GetPostsByUserId()
+        [HttpGet("myPantries")]
+        public IActionResult GetPantriesByUserId()
         {
-            string currentUserId = GetCurrentFirebaseUserProfileId();
-            var posts = _pantryListRepository.GetAllPantriesFromUser(currentUserId);
-            if (posts == null)
+            var user = GetCurrentUser();
+            if (user == null)
             {
-                return NotFound();
+                return Unauthorized();
             }
-            return Ok(posts);
+            else
+            {
+                var pantries = _pantryListRepository.GetUserPantries(user.FirebaseUserId);
+                return Ok(pantries);
+            }
         }
-    //private mthods are used as 'helpers'
-        private string GetCurrentFirebaseUserProfileId()
-        {
-            string id = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return id;
-        }
+
         private User GetCurrentUser()
+        //private methods are used as 'helpers' ^^^
         {
             var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            if (firebaseUserId != null)
+            {  
             return _userRepository.GetByFirebaseUserId(firebaseUserId);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         // POST api/<PantryListController>

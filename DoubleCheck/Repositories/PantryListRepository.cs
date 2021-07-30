@@ -76,6 +76,48 @@ namespace DoubleCheck.Repositories
             }
         }
 
+        public List<PantryList> GetUserPantries(string FirebaseUserId)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                         SELECT 
+                                        PantryList.id, 
+                                        PantryList.[name],
+                                        PantryList.UserId,
+                                        [User].firebaseUserId
+                                   FROM PantryList
+                                        LEFT JOIN [User]
+                                        ON PantryList.UserId = [User].id
+                                        WHERE firebaseUserId = @firebaseUserId";
+
+                    DbUtils.AddParameter(cmd, "@FirebaseUserId", FirebaseUserId);
+
+                    var reader = cmd.ExecuteReader();
+
+                    var pantries = new List<PantryList>();
+
+                    while (reader.Read())
+                    {
+                        pantries.Add(new PantryList()
+                        {
+                            Id = DbUtils.GetInt(reader, "id"),
+                            Name = DbUtils.GetString(reader, "name"),
+                            UserId = DbUtils.GetInt(reader, "userId"),
+                        });
+                    }
+
+                    reader.Close();
+
+                    return pantries;
+                }
+            }
+        }
+
         public void Delete(int id)
         {
             using (var conn = Connection)
