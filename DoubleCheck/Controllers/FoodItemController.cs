@@ -33,6 +33,15 @@ namespace DoubleCheck.Controllers
             return Ok(foodItems);
         }
 
+        // POST api/<FoodItemController>
+        [HttpPost("NewFoodItem")]
+        public IActionResult AddFoodItem (FoodItem foodItem)
+        {
+            _foodItemRepository.Add(foodItem);
+            return CreatedAtAction("Get", new { id = foodItem.Id }, foodItem);
+        }
+
+
         //        // GET api/<FoodItemController>/5
         //        [HttpGet("{id}")]
         //        public string Get(int id)
@@ -40,11 +49,6 @@ namespace DoubleCheck.Controllers
         //            return "value";
         //        }
 
-        //        // POST api/<FoodItemController>
-        //        [HttpPost]
-        //        public void Post([FromBody] string value)
-        //        {
-        //        }
 
         //        // PUT api/<FoodItemController>/5
         //        [HttpPut("{id}")]

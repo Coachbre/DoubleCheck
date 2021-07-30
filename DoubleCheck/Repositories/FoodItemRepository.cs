@@ -57,5 +57,30 @@ namespace DoubleCheck.Repositories
                 }
             }
         }
+        public void Add(FoodItem foodItem)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                              INSERT INTO FoodItem 
+                                ([name], quantity, notes, categoryId, pantryListId)
+                              OUTPUT INSERTED.ID
+                              VALUES 
+                                (@name, @quantity, @notes, @categoryId, @pantryListId)";
+
+                    DbUtils.AddParameter(cmd, "@name", foodItem.Name);
+                    DbUtils.AddParameter(cmd, "@quantity", foodItem.Quantity);
+                    DbUtils.AddParameter(cmd, "@notes", foodItem.Notes);
+                    DbUtils.AddParameter(cmd, "@categoryId", foodItem.CategoryId);
+                    DbUtils.AddParameter(cmd, "@pantryListId", foodItem.PantryListId);
+
+                    foodItem.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
     }
 }

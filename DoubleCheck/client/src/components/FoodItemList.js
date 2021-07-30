@@ -21,7 +21,7 @@ const FoodItemList = () => {
     return (
 
         <div className="container">
-                <Button onClick={deleteItem()}>Add Item</Button>
+                {/* <Button onClick={AddFoodItem()}>Add Item</Button> */}
             <div className="row justify-content-center">
                 <table>
                     <tr>
