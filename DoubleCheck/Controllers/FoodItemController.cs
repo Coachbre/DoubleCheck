@@ -34,11 +34,11 @@ namespace DoubleCheck.Controllers
         }
 
         // POST api/<FoodItemController>
-        [HttpPost("NewFoodItem")]
+        [HttpPost]
         public IActionResult AddFoodItem (FoodItem foodItem)
         {
             _foodItemRepository.Add(foodItem);
-            return CreatedAtAction("Get", new { id = foodItem.Id }, foodItem);
+            return CreatedAtAction("GetByPantry", new { PantryListId = foodItem.Id }, foodItem);
         }
 
 
