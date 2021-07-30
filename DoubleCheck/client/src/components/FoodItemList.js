@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Button, CardBody, Card } from "reactstrap";
+import { Link, useParams} from "react-router-dom";
 import FoodItemCard from './FoodItemCard';
 import { getAllFoodItems } from "../modules/foodItemManager";
 
 const FoodItemList = () => {
 
-    const [items, setItems] = useState([]);
+    const [foodItems, setFoodItems] = useState([]);
+
+    const { PantryListId } = useParams();
 
     const getItems = () => {
-        getAllFoodItems().then(items => setItems(items));
+        getAllFoodItems(PantryListId).then(setFoodItems);
+        console.log(foodItems);
     };
 
     useEffect(() => {
@@ -17,21 +19,18 @@ const FoodItemList = () => {
     }, []);
 
     return (
-        <div className="container">
-            <div className="row justify-content-center">
-                {items.map((foodItem) => {
-                    return (
-                        <Card>
-                            <CardBody>
-                                <FoodItemCard foodItem={foodItem} key={foodItem.id} />
-                            </CardBody>
-                            {/* <Button onClick={editSelectedFoodItem}>Update</Button> */}
-                            {/* <Button onClick={deleteSelectedFoodItem}>Delete</Button> */}
-                        </Card>
-                    )
-                } )}
+        <>
+            <div className="container">
+                <div className="row justify-content-center">
+                    {foodItems.map((foodItem) => {
+                        return (
+                            <FoodItemCard foodItem={foodItem} key={foodItem.id} />
+                        )
+                    }
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 export default FoodItemList;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, CardBody, Card } from "reactstrap";
 import PantryCard from './PantryCard';
@@ -32,21 +32,21 @@ const PantryList = () => {
             <div className="row justify-content-center">
                 {pantries.map((pantry) => {
                     return (
-                    <Card>
-                            <Link to={`/pantry/${pantry.id}`}>
-                        <CardBody>
-                            <PantryCard pantry={pantry} key={pantry.id} />
-                        </CardBody>
+                        <Card>
+                            <Link to={`/Pantry/${pantry.id}`}>
+                                <CardBody>
+                                    <PantryCard pantry={pantry} key={pantry.id} />
+                                </CardBody>
                             </Link>
                             {/* <Button onClick={deleteSelectedPantry}>Delete</Button> */}
-                    </Card>
+                        </Card>
                         // ^ pantry={pantry} is a prop, which allows the PantryList.js file to access objects/functions
                     )
                 }
                     // react fragments ( <> </> ) can be used to group things together within a return 
                     //(can only return one within)- used because it doesnt style the way <div> does
                 )}
-        </div>
+            </div>
             {/* <Link to="/pantry/add">
                 Create A New Pantry
             </Link> */}

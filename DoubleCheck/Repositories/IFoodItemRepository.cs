@@ -8,7 +8,7 @@ namespace DoubleCheck.Repositories
 {
     public interface IFoodItemRepository
     {
-        List<FoodItem> GetAll(int UserId);
-        // goes through pantryList table to access corresponding userId and filter
+        List<FoodItem> GetAll(int PantryListId);
+        // gets all food items within a pantry
     }
 }
