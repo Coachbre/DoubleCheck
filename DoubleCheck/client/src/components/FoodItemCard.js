@@ -5,12 +5,12 @@ const FoodItemCard = ({ foodItem }) => {
     return (
         <Card>
             <CardBody>
-                <ul>
-                    <li>{foodItem.name}</li>
-                    <li>Quantity: {foodItem?.quantity}</li>
-                    <li>Notes: {foodItem?.notes}</li>
-                    <li>Category: {foodItem?.categoryId}</li>
-                </ul>
+
+                        <td>{foodItem.name}</td>
+                        <td>{foodItem?.quantity}</td>
+                        <td>{foodItem?.notes}</td>
+                        {/* <li>Category: {foodItem?.categoryId}</li> */}
+
             </CardBody>
             {/* <Button onClick={editSelectedFoodItem}>Update</Button> */}
             {/* <Button onClick={deleteSelectedFoodItem}>Delete</Button> */}

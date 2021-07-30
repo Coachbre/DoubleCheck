@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import FoodItemCard from './FoodItemCard';
 import { getAllFoodItems } from "../modules/foodItemManager";
 
@@ -7,11 +7,10 @@ const FoodItemList = () => {
 
     const [foodItems, setFoodItems] = useState([]);
 
-    const { PantryListId } = useParams();
+    const { pantryListId } = useParams();
 
     const getItems = () => {
-        getAllFoodItems(PantryListId).then(setFoodItems);
-        console.log(foodItems);
+        return getAllFoodItems(pantryListId).then((res) => setFoodItems(res));
     };
 
     useEffect(() => {
@@ -19,18 +18,28 @@ const FoodItemList = () => {
     }, []);
 
     return (
-        <>
-            <div className="container">
-                <div className="row justify-content-center">
+
+        <div className="container">
+            <div className="row justify-content-center">
+                <table>
+                    <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Notes</th>
+                    </tr>
+                    <tr>
                     {foodItems.map((foodItem) => {
                         return (
+
                             <FoodItemCard foodItem={foodItem} key={foodItem.id} />
                         )
                     }
                     )}
-                </div>
+                    </tr>
+                </table>
             </div>
-        </>
+        </div>
+
     );
 };
 export default FoodItemList;
