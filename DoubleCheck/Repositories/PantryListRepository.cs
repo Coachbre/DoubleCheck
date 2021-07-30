@@ -76,7 +76,7 @@ namespace DoubleCheck.Repositories
             }
         }
 
-        public List<PantryList> GetUserPantries(string FirebaseUserId)
+        public List<PantryList> GetByUser(string FirebaseUserId)
         {
             using (var conn = Connection)
             {

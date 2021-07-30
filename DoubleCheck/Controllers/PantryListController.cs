@@ -39,8 +39,7 @@ namespace DoubleCheck.Controllers
             return Ok(pantryList);
         }
 
-        // Get the current user
-        [HttpGet("myPantries")]
+        [HttpGet("Pantries")]
         public IActionResult GetPantriesByUserId()
         {
             var user = GetCurrentUser();
@@ -50,7 +49,7 @@ namespace DoubleCheck.Controllers
             }
             else
             {
-                var pantries = _pantryListRepository.GetUserPantries(user.FirebaseUserId);
+                var pantries = _pantryListRepository.GetByUser(user.FirebaseUserId);
                 return Ok(pantries);
             }
         }

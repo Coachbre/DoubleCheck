@@ -8,7 +8,7 @@ namespace DoubleCheck.Repositories
     public interface IPantryListRepository
     {
         List<PantryList> GetAll();
-        List<PantryList> GetUserPantries(string FirebaseId);
+        List<PantryList> GetByUser(string FirebaseId);
         PantryList GetById(int id);
         void Delete(int id);
     }
