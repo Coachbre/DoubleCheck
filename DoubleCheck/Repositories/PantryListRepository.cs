@@ -22,7 +22,7 @@ namespace DoubleCheck.Repositories
                     cmd.CommandText = @" SELECT 
                                         PantryList.id, 
                                         PantryList.name
-                                        FROM PantryList ORDER BY id";
+                                        FROM PantryList";
 
                     var reader = cmd.ExecuteReader();
                     var pantries = new List<PantryList>();
@@ -85,12 +85,12 @@ namespace DoubleCheck.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                         SELECT 
+                                SELECT 
                                         PantryList.id, 
                                         PantryList.[name],
                                         PantryList.UserId,
                                         [User].firebaseUserId
-                                   FROM PantryList
+                                FROM PantryList
                                         LEFT JOIN [User]
                                         ON PantryList.UserId = [User].id
                                         WHERE firebaseUserId = @firebaseUserId";

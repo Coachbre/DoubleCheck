@@ -6,6 +6,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import PantryList from "./PantryList";
+import FoodItems from "./FoodItems";
 
 export default function ApplicationViews({ isLoggedIn }) {
     return (
@@ -16,9 +17,9 @@ export default function ApplicationViews({ isLoggedIn }) {
                     {isLoggedIn ? <PantryList /> : <Redirect to="/login" />}
                 </Route>
 
-                {/* <Route path="/pantry/:id(\d+)/items" exact>
-                    {isLoggedIn ? <PantryItems /> : <Redirect to="/login" />}
-                </Route> */}
+                <Route path="/:id(\d+)" exact>
+                    {isLoggedIn ? <FoodItems /> : <Redirect to="/login" />}
+                </Route>
 
                 {/*<Route exact path="/tags/add">
 

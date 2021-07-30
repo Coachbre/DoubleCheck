@@ -33,12 +33,12 @@ const PantryList = () => {
                 {pantries.map((pantry) => {
                     return (
                     <Card>
-                        <Link to="/pantry/${id}/items">
+                        <Link to="/pantryItems">
                         <CardBody>
                             <Pantry pantry={pantry} key={pantry.id} />
                         </CardBody>
                             </Link>
-                            <Button onClick={deleteSelectedPantry}>Delete</Button>
+                            {/* <Button onClick={deleteSelectedPantry}>Delete</Button> */}
                     </Card>
                         // ^ pantry={pantry} is a prop, which allows the PantryList.js file to access objects/functions
                     )

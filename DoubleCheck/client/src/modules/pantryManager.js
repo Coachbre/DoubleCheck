@@ -23,7 +23,7 @@ export const getAllPantries = () => {
     });
 };
 
-export const getByUser = (id) => {
+export const getByUser = () => {
     return getToken().then((token) => {
         return fetch(`${baseUrl}/Pantries`, {
             method: "GET",
