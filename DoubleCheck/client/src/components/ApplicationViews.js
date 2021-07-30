@@ -7,14 +7,19 @@ import Login from "./Login";
 import Register from "./Register";
 import PantryList from "./PantryList";
 import FoodItemList from "./FoodItemList";
+import AddFoodItemForm from "./AddFoodItemForm";
 
 export default function ApplicationViews({ isLoggedIn }) {
     return (
-            //EXACT PATH can be used when routes begin the same
+            //EXACT PATH is used when routes begin the same
         <main>
             <Switch>
                 <Route path="/" exact>
                     {isLoggedIn ? <PantryList /> : <Redirect to="/login" />}
+                </Route>
+
+                <Route path="/Pantry/:pantryListId(\d+)" exact>
+                    {isLoggedIn ? <FoodItemList /> : <Redirect to="/login" />}
                 </Route>
 
                 <Route path="/Pantry/:pantryListId(\d+)" exact>

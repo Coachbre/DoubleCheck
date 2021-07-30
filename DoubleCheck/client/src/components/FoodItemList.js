@@ -21,7 +21,7 @@ const FoodItemList = () => {
     return (
 
         <div className="container">
-            <Link to={`/AddItem`}>
+            <Link to={`Pantry/${pantryListId}/AddFoodItemForm`}>
                 <Button>Add Item</Button>
             </Link>
             <div className="row justify-content-center">
