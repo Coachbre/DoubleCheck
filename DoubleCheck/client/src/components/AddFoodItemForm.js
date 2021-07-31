@@ -4,48 +4,55 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { addFoodItem } from "../modules/foodItemManager";
 
 const AddFoodItemForm = () => {
-    // const { pantryListId } = useParams();
     const history = useHistory();
     const { pantryListId } = useParams();
+    const [foodItem, setFoodItem] = useState({
+        categoryId: 1,
+        // ^^ change for stretch goal
+        pantryListId: pantryListId,
+        name: "",
+        quantity: "",
+        notes: ""
+    });
 
+    const handleInputChange = (event) => {
+        const newFoodItem = { ...foodItem }
+        let selectedValue = event.target.value
+        newFoodItem[event.target.id] = selectedValue
+        setFoodItem(newFoodItem)
+    };
 
-    const [foodItem, setFoodItem] = useState();
-
-    const submitForm = (event) => {
+    const handleSave = (event) => {
         event.preventDefault();
-        addFoodItem({
-            categoryId: 1,
-            // ^^ change for stretch goal
-            pantryListId: pantryListId,
-            name: "",
-            quantity: "",
-            notes: ""
-        })
+        addFoodItem(foodItem)
             .then(() => history.push(`/Pantry/${pantryListId}`));
     };
 
     return (
-        <Form onSubmit={submitForm}>
+        <Form>
             <FormGroup>
                 <Label for="name">Name:</Label>
                 <Input type="text" name="name" id="name" placeholder="Item Name"
-                    onChange={setFoodItem(foodItem.name)} />
+                    required value={foodItem.name}
+                    onChange={handleInputChange} />
             </FormGroup>
 
             <FormGroup>
                 <Label for="quantity">Quantity:</Label>
                 <Input type="number" name="quantity" id="quantity" placeholder="Quantity"
-                    onChange={setFoodItem(foodItem.quantity)} />
+                    required value={foodItem.quantity}
+                    onChange={handleInputChange} />
             </FormGroup>
 
             <FormGroup>
                 <Label for="notes">Notes:</Label>
                 <Input type="textarea" name="notes" id="notes" placeholder="Notes"
-                    onChange={setFoodItem(foodItem.Notes)} />
+                    required value={foodItem.notes}
+                    onChange={handleInputChange} />
             </FormGroup>
 
             <FormGroup>
-                <Button className="btn btn-primary">Add</Button>
+                <Button className="btn btn-primary" onClick={handleSave}>Submit</Button>
             </FormGroup>
         </Form>
     );
