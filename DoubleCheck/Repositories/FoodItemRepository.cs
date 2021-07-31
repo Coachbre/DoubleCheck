@@ -106,16 +106,17 @@ namespace DoubleCheck.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                    UPDATE FoodItem
-                           SET 
-                               name = @name,
+                    UPDATE FoodItem                       
+                           SET [name] = @name,
                                quantity = @quantity,
                                notes = @notes,
-                               categoryId = 1,
+                               categoryId = @categoryId,
                                pantryListId = @pantryListId
                     WHERE Id = @Id
                         ";
 
+                    DbUtils.AddParameter(cmd, "@id", foodItem.Id);
+                    DbUtils.AddParameter(cmd, "@name", foodItem.Name);
                     DbUtils.AddParameter(cmd, "@name", foodItem.Name);
                     DbUtils.AddParameter(cmd, "@quantity", foodItem.Quantity);
                     DbUtils.AddParameter(cmd, "@notes", foodItem.Notes);

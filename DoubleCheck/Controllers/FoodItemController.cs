@@ -50,20 +50,25 @@ namespace DoubleCheck.Controllers
             return NoContent();
         }
 
+
+        // PUT api/<FoodItemController>/5
+        [HttpPut("Edit/{id}")]
+        public IActionResult Put(int id, FoodItem foodItem)
+        {
+            if (id!= foodItem.Id)
+            {
+                return BadRequest();
+            }
+            _foodItemRepository.Update(foodItem);
+            return NoContent();
+        }
+
+
         //        // GET api/<FoodItemController>/5
         //        [HttpGet("{id}")]
         //        public string Get(int id)
         //        {
         //            return "value";
         //        }
-
-
-        //        // PUT api/<FoodItemController>/5
-        //        [HttpPut("{id}")]
-        //        public void Put(int id, [FromBody] string value)
-        //        {
-        //        }
-
-        //    }
     }
 }
