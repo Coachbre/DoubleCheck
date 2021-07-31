@@ -16,7 +16,7 @@ const FoodItemList = () => {
 
     const handleDelete = (foodItemId) => {
         deleteFoodItem(foodItemId).then(() => getItems())
-         // ^^^ anonymous function [ () => getItems()]
+         // ^^^ anonymous function [ () => getItems() ] isnt bound to an identifier (empty)
     };
 
     useEffect(() => {

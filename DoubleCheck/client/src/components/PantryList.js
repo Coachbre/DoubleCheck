@@ -12,8 +12,7 @@ const PantryList = () => {
     };
 
 
-    const deleteSelectedPantry = (evt) => {
-        evt.preventDefault();
+    const deleteSelectedPantry = () => {
         var results = (window.confirm('Delete the item?'))
         if (results) {
             console.log(evt);
