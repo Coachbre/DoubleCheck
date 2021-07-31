@@ -1,16 +1,8 @@
 import React from "react";
-import { deleteFoodItem } from "../modules/foodItemManager";
 import { Button, CardBody, Card } from "reactstrap";
 
 
-const FoodItemCard = ({ foodItem }) => {
-
-    const handleDelete = (event) => {
-        event.preventDefault();
-        deleteFoodItem(foodItem.id)
-            .then(() => {getItems()})
-    }
-
+const FoodItemCard = ({ foodItem, handleDelete }) => {
 
     return (
         <Card>
@@ -26,11 +18,11 @@ const FoodItemCard = ({ foodItem }) => {
                     <Button>Update</Button>
                 </div>
                 <div>
-                    <Button onClick={handleDelete}>Delete</Button>
+                    <Button onClick={() => handleDelete(foodItem.id)}>Delete</Button>
                 </div>
             </CardBody>
         </Card>
-);
+    );
 };
 
 
