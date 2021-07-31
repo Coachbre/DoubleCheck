@@ -34,7 +34,7 @@ namespace DoubleCheck.Controllers
         }
 
         // POST api/<FoodItemController>
-        [HttpPost]
+        [HttpPost("Add")]
         public IActionResult AddFoodItem (FoodItem foodItem)
         {
             _foodItemRepository.Add(foodItem);

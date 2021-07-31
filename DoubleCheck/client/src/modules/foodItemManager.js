@@ -17,8 +17,9 @@ export const getAllFoodItems = (PantryListId) => {
 };
 
 export const addFoodItem = (foodItem) => {
+    console.log(foodItem);
     return getToken().then((token) => {
-        return fetch(baseUrl, {
+        return fetch(`${baseUrl}/Add`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,
