@@ -6,8 +6,8 @@ const baseUrl = '/api/FoodItem';
 
 export const getAllFoodItems = (PantryListId) => {
     return getToken().then((token) => {
-        // vv fetch url must match related http attribute in (FoodItem) server controller vv
         return fetch(`${baseUrl}/GetByPantry/${PantryListId}`, {
+            // ^^ fetch url must match related http attribute in (FoodItem) server controller vv
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
