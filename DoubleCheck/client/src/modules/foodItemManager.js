@@ -17,7 +17,6 @@ export const getAllFoodItems = (PantryListId) => {
 };
 
 export const addFoodItem = (foodItem) => {
-    console.log(foodItem);
     return getToken().then((token) => {
         return fetch(`${baseUrl}/Add`, {
             method: "POST",

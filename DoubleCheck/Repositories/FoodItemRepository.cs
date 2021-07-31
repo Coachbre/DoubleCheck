@@ -83,5 +83,19 @@ namespace DoubleCheck.Repositories
             }
         }
 
+        public void Delete(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+
+                    cmd.CommandText = @"DELETE FROM FoodItem WHERE Id = @Id";
+                    DbUtils.AddParameter(cmd, "@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

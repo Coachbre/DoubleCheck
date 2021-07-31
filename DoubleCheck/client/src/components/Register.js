@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { register } from "../modules/authManager";
 // import logo1 from "../images/logo1.png";
 
@@ -53,6 +53,9 @@ export default function Register() {
                 <FormGroup>
                     <Button className="loginbutton">Register</Button>
                 </FormGroup>
+                <em>
+                <Link to="login">Back to Login</Link>
+                </em>
             </fieldset>
         </Form>
     );

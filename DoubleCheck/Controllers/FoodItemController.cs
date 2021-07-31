@@ -42,6 +42,13 @@ namespace DoubleCheck.Controllers
             // CreatedAtAction (hover for definition)- Go to GetByPantry and pass in PantryListId as foodItem.id
         }
 
+        // DELETE api/<FoodItemController>/5
+        [HttpDelete("Delete")]
+        public IActionResult Delete(int id)
+        {
+            _foodItemRepository.Delete(id);
+            return NoContent();
+        }
 
         //        // GET api/<FoodItemController>/5
         //        [HttpGet("{id}")]
@@ -57,11 +64,6 @@ namespace DoubleCheck.Controllers
         //        {
         //        }
 
-        //        // DELETE api/<FoodItemController>/5
-        //        [HttpDelete("{id}")]
-        //        public void Delete(int id)
-        //        {
-        //        }
         //    }
     }
 }
