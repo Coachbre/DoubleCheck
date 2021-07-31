@@ -43,7 +43,7 @@ namespace DoubleCheck.Controllers
         }
 
         // DELETE api/<FoodItemController>/5
-        [HttpDelete("Delete")]
+        [HttpDelete("Delete/{id}")]
         public IActionResult Delete(int id)
         {
             _foodItemRepository.Delete(id);
