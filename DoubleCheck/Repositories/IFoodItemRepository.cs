@@ -12,5 +12,6 @@ namespace DoubleCheck.Repositories
         void Add(FoodItem foodItem);
         // gets all food items within a pantry
         void Delete(int id);
+        void Update(FoodItem foodItem);
     }
 }

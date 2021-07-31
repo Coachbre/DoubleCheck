@@ -18,6 +18,9 @@ const FoodItemCard = ({ foodItem, handleDelete }) => {
                     <Button>Update</Button>
                 </div>
                 <div>
+                    <Button onClick={() => handleEdit(foodItem.id)}>Delete</Button>
+                </div>
+                <div>
                     <Button onClick={() => handleDelete(foodItem.id)}>Delete</Button>
                 </div>
             </CardBody>

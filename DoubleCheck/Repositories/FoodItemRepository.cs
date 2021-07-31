@@ -97,5 +97,34 @@ namespace DoubleCheck.Repositories
                 }
             }
         }
+
+        public void Update(FoodItem foodItem)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                    UPDATE FoodItem
+                           SET 
+                               name = @name,
+                               quantity = @quantity,
+                               notes = @notes,
+                               categoryId = 1,
+                               pantryListId = @pantryListId
+                    WHERE Id = @Id
+                        ";
+
+                    DbUtils.AddParameter(cmd, "@name", foodItem.Name);
+                    DbUtils.AddParameter(cmd, "@quantity", foodItem.Quantity);
+                    DbUtils.AddParameter(cmd, "@notes", foodItem.Notes);
+                    DbUtils.AddParameter(cmd, "@categoryId", foodItem.CategoryId);
+                    DbUtils.AddParameter(cmd, "@pantryListId", foodItem.PantryListId);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
