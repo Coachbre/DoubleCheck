@@ -30,7 +30,7 @@ export const addFoodItem = (foodItem) => {
     })
 };
 
-export const deleteFoodItem = () => {
+export const deleteFoodItem = (id) => {
     return getToken().then((token) => {
         return fetch(`${baseUrl}/Delete/${id}`, {
             method: "DELETE",
