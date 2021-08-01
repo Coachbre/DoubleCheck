@@ -117,7 +117,6 @@ namespace DoubleCheck.Repositories
 
                     DbUtils.AddParameter(cmd, "@id", foodItem.Id);
                     DbUtils.AddParameter(cmd, "@name", foodItem.Name);
-                    DbUtils.AddParameter(cmd, "@name", foodItem.Name);
                     DbUtils.AddParameter(cmd, "@quantity", foodItem.Quantity);
                     DbUtils.AddParameter(cmd, "@notes", foodItem.Notes);
                     DbUtils.AddParameter(cmd, "@categoryId", foodItem.CategoryId);

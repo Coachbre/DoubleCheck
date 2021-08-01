@@ -12,13 +12,10 @@ const FoodItemCard = ({ foodItem, handleDelete }) => {
                     <td>{foodItem.name}: {foodItem?.quantity}</td>
                 </div>
                 <div>
-                    <td>Notes: {foodItem?.notes}</td>
+                    <td>Notes: {foodItem.notes}</td>
                 </div>
                 <div>
-                    <Button>Update</Button>
-                </div>
-                <div>
-                    {/* <Button onClick={() => handleEdit(foodItem.id)}>Delete</Button> */}
+                    {/* <Button onClick={() => handleEdit(foodItem.id)}>Update</Button> */}
                 </div>
                 <div>
                     <Button onClick={() => handleDelete(foodItem.id)}>Delete</Button>
