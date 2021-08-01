@@ -16,7 +16,7 @@ const FoodItemCard = ({ foodItem, pantryListId, handleDelete }) => {
                     <td>Notes: {foodItem.notes}</td>
                 </div>
                 <div>
-                    <Link to={`/Pantry/${foodItem.id}/Update`}>
+                    <Link to={`/${foodItem.id}/Update`}>
                     <Button>Update</Button>
                     </Link>
                 </div>

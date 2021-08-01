@@ -31,7 +31,7 @@ const PantryList = () => {
                 {pantries.map((pantry) => {
                     return (
                         <Card>
-                            <Link to={`/Pantry/${pantry.id}`}>
+                            <Link to={`/${pantry.id}`}>
                                 <CardBody>
                                     <PantryCard pantry={pantry} key={pantry.id} />
                                 </CardBody>

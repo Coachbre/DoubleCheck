@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { editFoodItem, getAllFoodItems } from "../modules/foodItemManager";
 
 const EditFoodItemForm = () => {
-    const { id, pantryListId } = useParams();
+    const { id, pantryListId, foodItemId } = useParams();
     const history = useHistory();
 
     const [foodItem, setFoodItem] = useState({});

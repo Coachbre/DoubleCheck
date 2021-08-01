@@ -25,7 +25,6 @@ const FoodItemList = () => {
     }, []);
 
     return (
-
         <div className="container">
             <Link to={`${pantryListId}/NewItem`}>
                 <Button>Add Item</Button>

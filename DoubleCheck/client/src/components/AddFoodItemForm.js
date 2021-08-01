@@ -25,7 +25,7 @@ const AddFoodItemForm = () => {
 
     const handleSave = () => {
         addFoodItem(foodItem)
-            .then(() => history.push(`/Pantry/${pantryListId}`));
+            .then(() => history.push(`/${pantryListId}`));
     };
 
     return (
