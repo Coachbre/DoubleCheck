@@ -1,48 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { editFoodItem, getAllFoodItems } from "../modules/foodItemManager";
+import { editFoodItem, getFoodItemById } from "../modules/foodItemManager";
 
 const EditFoodItemForm = () => {
-    const { id, pantryListId, foodItemId } = useParams();
+    const { pantryList, foodItemId } = useParams();
     const history = useHistory();
 
     const [foodItem, setFoodItem] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     // initial state set to false
 
-    const handleInputChange = (event) => {
+    const getFoodItem = () => {
+        getFoodItemById(foodItemId).then(foodItem => setFoodItem(foodItem));
+    };
+
+    const handleInputChange = (evt) => {
+        const value = evt.target.value;
+        const key = evt.target.id;
+        const newFoodItem = { ...foodItem };
+        newFoodItem[key] = value;
+        setFoodItem(newFoodItem);
+    }
+
+    const handleEdit = (event) => {
         event.preventDefault();
-        const changedFoodItem = { ...foodItem }
-
-        let selectedValue = event.target.value
-        changedFoodItem[event.target.id] = selectedValue
-
-        setFoodItem(changedFoodItem)
+        setIsLoading(true);
+        let newFoodItem = { ...foodItem };
+        
+        editFoodItem(newFoodItem)
+        
     }
 
-    const handleEdit = () => {
-        const editedFoodItem = {
-            categoryId: 1,
-            pantryListId: pantryListId,
-            id: id,
-            name: foodItem.name,
-            quantity: foodItem.quantity,
-            notes: foodItem.notes
-        }
-
-        editFoodItem(editedFoodItem)
-            .then(() => history.push(`/Pantry/${pantryListId}`));
-    }
 
     useEffect(() => {
-        getAllFoodItems(id).then(foodItem => {
-            setFoodItem(foodItem)
-            setIsLoading(false)
-        })
-    }, [])
+        getFoodItem(foodItemId);
+    }, []);
+
     return (
         <>
+            <h3>Update {foodItem.name}</h3>
             <Form>
                 <FormGroup>
                     <Label htmlFor="name">Name:</Label>
@@ -65,7 +62,9 @@ const EditFoodItemForm = () => {
                         onChange={handleInputChange} />
                 </FormGroup>
 
+            
                 <Button className="btn btn-primary" onClick={handleEdit} disabled={isLoading}>Save</Button>
+              
             </Form>
         </>
     );

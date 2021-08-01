@@ -3,7 +3,7 @@ import { Button, CardBody, Card } from "reactstrap";
 import { Link } from "react-router-dom";
 
 
-const FoodItemCard = ({ foodItem, pantryListId, handleDelete }) => {
+const FoodItemCard = ({ foodItem, handleDelete }) => {
 
     return (
         <Card>

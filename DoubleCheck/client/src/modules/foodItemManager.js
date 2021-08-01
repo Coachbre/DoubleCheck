@@ -17,6 +17,18 @@ export const getAllFoodItems = (PantryListId) => {
     });
 };
 
+export const getFoodItemById = (id) => {
+    return getToken().then((token) => {
+        return fetch(`${baseUrl}/${id}`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }).then((res) => res.json());
+    });
+};
+
+
 export const addFoodItem = (foodItem) => {
     return getToken().then((token) => {
         return fetch(`${baseUrl}/Add`, {
