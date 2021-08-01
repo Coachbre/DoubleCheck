@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { editFoodItem, getFoodItemById } from "../modules/foodItemManager";
 
 const EditFoodItemForm = () => {
-    const { pantryList, foodItemId } = useParams();
+    const { pantryListId, foodItemId } = useParams();
     const history = useHistory();
 
     const [foodItem, setFoodItem] = useState({});
@@ -28,8 +28,7 @@ const EditFoodItemForm = () => {
         setIsLoading(true);
         let newFoodItem = { ...foodItem };
         
-        editFoodItem(newFoodItem)
-        
+        editFoodItem(newFoodItem).then(() => history.push(`/${foodItem.pantryListId}`))
     }
 
 
