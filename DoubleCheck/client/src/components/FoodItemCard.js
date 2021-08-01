@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, CardBody, Card } from "reactstrap";
+import { Link } from "react-router-dom";
 
 
 const FoodItemCard = ({ foodItem, handleDelete }) => {
@@ -15,7 +16,9 @@ const FoodItemCard = ({ foodItem, handleDelete }) => {
                     <td>Notes: {foodItem.notes}</td>
                 </div>
                 <div>
-                    {/* <Button onClick={() => handleEdit(foodItem.id)}>Update</Button> */}
+                    <Link to={`${pantryListId}/Update/${foodItem.name}`}>
+                    <Button>Update</Button>
+                    </Link>
                 </div>
                 <div>
                     <Button onClick={() => handleDelete(foodItem.id)}>Delete</Button>

@@ -14,6 +14,7 @@ const AddFoodItemForm = () => {
         quantity: "",
         notes: ""
     });
+    //initial state of foodItem is user input
 
     const handleInputChange = (event) => {
         const newFoodItem = { ...foodItem }
@@ -51,7 +52,7 @@ const AddFoodItemForm = () => {
             </FormGroup>
 
             <FormGroup>
-                <Button className="btn btn-primary" onClick={handleSave}>Submit</Button>
+                <Button className="btn btn-primary" onClick={handleSave}>Save</Button>
             </FormGroup>
         </Form>
     );

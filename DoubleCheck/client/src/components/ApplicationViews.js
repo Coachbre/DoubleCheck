@@ -8,6 +8,7 @@ import Register from "./Register";
 import PantryList from "./PantryList";
 import FoodItemList from "./FoodItemList";
 import AddFoodItemForm from "./AddFoodItemForm";
+import EditFoodItemForm from "./EditFoodItemForm";
 
 export default function ApplicationViews({ isLoggedIn }) {
     return (
@@ -24,6 +25,10 @@ export default function ApplicationViews({ isLoggedIn }) {
 
                 <Route path="/Pantry/:pantryListId(\d+)/NewItem" exact>
                     {isLoggedIn ? <AddFoodItemForm /> : <Redirect to="/login" />}
+                </Route>
+
+                <Route path="/Pantry/:pantryListId(\d+)/Update/:name" exact>
+                    {isLoggedIn ? <EditFoodItemForm /> : <Redirect to="/login" />}
                 </Route>
 
                 {/*<Route exact path="/tags/add">
