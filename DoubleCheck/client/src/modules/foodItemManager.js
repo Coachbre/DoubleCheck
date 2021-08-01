@@ -37,19 +37,21 @@ export const deleteFoodItem = (id) => {
             headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json",
-            },
-        })
+            }
+        });
     });
 };
 
 export const editFoodItem = (foodItem) => {
-    return getToken().then((token) =>
-    fetch(`${baseURL}/Edit/${foodItem.id}`, {
-        method: "PUT",
-        headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(foodItem),
-    }))
+    return getToken().then((token) => {
+        return fetch(`${baseUrl}/Edit/${foodItem.id}`, {
+            method: "PUT",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(foodItem),
+        });
+
+    });
 };

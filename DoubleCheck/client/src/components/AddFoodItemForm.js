@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { addFoodItem } from "../modules/foodItemManager";
 
@@ -52,8 +52,11 @@ const AddFoodItemForm = () => {
             </FormGroup>
 
             <FormGroup>
-                <Button className="btn btn-primary" onClick={handleSave}>Save</Button>
+                <Button className="btn btn-primary" onClick={handleSave} pantryListId={pantryListId}>Save</Button>
             </FormGroup>
+            {/* <Link to={`/Pantry/${pantryList.id}`}>
+            <Button>Cancel</Button>
+            </Link> */}
         </Form>
     );
 };

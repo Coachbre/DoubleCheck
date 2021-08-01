@@ -3,7 +3,7 @@ import { Button, CardBody, Card } from "reactstrap";
 import { Link } from "react-router-dom";
 
 
-const FoodItemCard = ({ foodItem, handleDelete }) => {
+const FoodItemCard = ({ foodItem, pantryListId, handleDelete }) => {
 
     return (
         <Card>
@@ -16,7 +16,7 @@ const FoodItemCard = ({ foodItem, handleDelete }) => {
                     <td>Notes: {foodItem.notes}</td>
                 </div>
                 <div>
-                    <Link to={`${pantryListId}/Update/${foodItem.name}`}>
+                    <Link to={`/Pantry/${foodItem.id}/Update`}>
                     <Button>Update</Button>
                     </Link>
                 </div>

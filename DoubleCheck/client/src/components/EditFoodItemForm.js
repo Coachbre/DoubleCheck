@@ -6,7 +6,7 @@ import { editFoodItem, getAllFoodItems } from "../modules/foodItemManager";
 const EditFoodItemForm = () => {
     const { id, pantryListId } = useParams();
     const history = useHistory();
-    
+
     const [foodItem, setFoodItem] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     // initial state set to false
@@ -25,7 +25,7 @@ const EditFoodItemForm = () => {
         const editedFoodItem = {
             categoryId: 1,
             pantryListId: pantryListId,
-            id:id,
+            id: id,
             name: foodItem.name,
             quantity: foodItem.quantity,
             notes: foodItem.notes
