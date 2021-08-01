@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 // table columns must be capitalized
+// determines properties that define a FoodItem object
 
 namespace DoubleCheck.Models
 {
@@ -19,7 +20,5 @@ namespace DoubleCheck.Models
         public int PantryListId { get; set; }
         [Required]
         public int CategoryId { get; set; }
-
-
     }
 }

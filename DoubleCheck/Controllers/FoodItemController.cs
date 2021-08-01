@@ -21,7 +21,7 @@ namespace DoubleCheck.Controllers
             _foodItemRepository = foodItemRepository;
         }
 
-
+        // Get 'all' food items, grouped by pantry list Id
         [HttpGet("GetByPantry/{PantryListId}")]
         public IActionResult GetByPantry(int PantryListId)
         {
@@ -33,6 +33,20 @@ namespace DoubleCheck.Controllers
             return Ok(foodItems);
         }
 
+
+        // GET api/<FoodItemController>/5
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var foodItem = _foodItemRepository.GetById(id);
+            if (foodItem == null)
+            {
+                return NotFound();
+            }
+            return Ok(foodItem);
+        }
+
+
         // POST api/<FoodItemController>
         [HttpPost("Add")]
         public IActionResult AddFoodItem (FoodItem foodItem)
@@ -41,6 +55,7 @@ namespace DoubleCheck.Controllers
             return CreatedAtAction("GetByPantry", new { PantryListId = foodItem.Id }, foodItem);
             // CreatedAtAction (hover for definition)- Go to GetByPantry and pass in PantryListId as foodItem.id
         }
+
 
         // DELETE api/<FoodItemController>/5
         [HttpDelete("Delete/{id}")]
@@ -64,11 +79,5 @@ namespace DoubleCheck.Controllers
         }
 
 
-        //        // GET api/<FoodItemController>/5
-        //        [HttpGet("{id}")]
-        //        public string Get(int id)
-        //        {
-        //            return "value";
-        //        }
     }
 }

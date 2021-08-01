@@ -58,6 +58,44 @@ namespace DoubleCheck.Repositories
                 }
             }
         }
+
+        public FoodItem GetById(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                                        SELECT FoodItem.id, FoodItem.[name], FoodItem.quantity, FoodItem.notes, FoodItem.categoryId, FoodItem.pantryListId
+                                        FROM FoodItem
+                                        WHERE FoodItem.id = @Id";
+                    //aliases should NOT be used in join statements-
+                    //using an alias (AS) renames the column to avoid duplicate column names between tables
+
+                    DbUtils.AddParameter(cmd, "@Id", id);
+
+                    var reader = cmd.ExecuteReader();
+
+                    FoodItem foodItem = null;
+                    if (reader.Read())
+                    {
+                        foodItem = new FoodItem()
+                        {
+                            Id = id,
+                            Name = DbUtils.GetString(reader, "Name"),
+                            Quantity = DbUtils.GetInt(reader, "Quantity"),
+                            Notes = DbUtils.GetString(reader, "Notes"),
+                            CategoryId = DbUtils.GetInt(reader, "CategoryId"),
+                            PantryListId = DbUtils.GetInt(reader, "PantryListId")
+                        };
+                    }
+                    reader.Close();
+                    return foodItem;
+                }
+            }
+        }
+
         public void Add(FoodItem foodItem)
         {
             using (var conn = Connection)
