@@ -54,9 +54,9 @@ const AddFoodItemForm = () => {
             <FormGroup>
                 <Button className="btn btn-primary" onClick={handleSave} pantryListId={pantryListId}>Save</Button>
             </FormGroup>
-            {/* <Link to={`/Pantry/${pantryList.id}`}>
+            <Link to={`/${pantryListId}`}>
             <Button>Cancel</Button>
-            </Link> */}
+            </Link>
         </Form>
     );
 };
