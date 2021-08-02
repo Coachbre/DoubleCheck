@@ -120,6 +120,28 @@ namespace DoubleCheck.Repositories
             }
         }
 
+        public void Add(PantryList pantryList)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                                INSERT INTO PantryList 
+                              ([name], userId)
+                              OUTPUT INSERTED.ID
+                              VALUES ('Kitchen', @userId)";
+
+                    DbUtils.AddParameter(cmd, "'Kitchen'", pantryList.Name);
+                    DbUtils.AddParameter(cmd, "@userId", pantryList.UserId);
+
+                    pantryList.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
+
         public void Delete(int id)
         {
             using (var conn = Connection)

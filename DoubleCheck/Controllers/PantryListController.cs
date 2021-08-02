@@ -54,14 +54,16 @@ namespace DoubleCheck.Controllers
             }
         }
 
+    
+
         private User GetCurrentUser()
         //private methods are used as 'helpers' ^^^
         {
             var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             if (firebaseUserId != null)
-            {  
-            return _userRepository.GetByFirebaseUserId(firebaseUserId);
+            {
+                return _userRepository.GetByFirebaseUserId(firebaseUserId);
             }
             else
             {

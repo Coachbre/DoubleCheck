@@ -11,5 +11,6 @@ namespace DoubleCheck.Repositories
         List<PantryList> GetByUser(string FirebaseId);
         PantryList GetById(int id);
         void Delete(int id);
+        void Add(PantryList pantryList);
     }
 }

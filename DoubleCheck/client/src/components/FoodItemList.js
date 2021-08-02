@@ -27,7 +27,7 @@ const FoodItemList = () => {
     return (
         <div className="container">
             <Link to={`${pantryListId}/NewItem`}>
-                <Button>Add Item</Button>
+                <Button>Add To Your Kitchen!</Button>
             </Link>
             <div className="row justify-content-center">
                 <table>
