@@ -1,7 +1,7 @@
 body { min-height: 100vh; }
 
 .pantryList {
-background-image: url("../../images/blueBackground.jpg");
+background-image: url("../../images/pantryListBackground.jpg");
 display: flex;
 flex-shrink: inherit;
 margin-bottom: 200em;
@@ -10,5 +10,5 @@ margin-bottom: 200em;
 }
 
 .container {
-    margin-top: 10em;
+    margin-top: 37.35em;
 }
