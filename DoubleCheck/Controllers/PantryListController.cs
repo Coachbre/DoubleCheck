@@ -50,7 +50,13 @@ namespace DoubleCheck.Controllers
             else
             {
                 var pantries = _pantryListRepository.GetByUser(user.FirebaseUserId);
-                return Ok(pantries);
+                if (pantries.Count == 0)
+                {
+                    PantryList name = new PantryList() { UserId = user.Id };
+                    _pantryListRepository.AddDefault(name);
+                    pantries = _pantryListRepository.GetByUser(user.FirebaseUserId);
+                }
+                    return Ok(pantries);             
             }
         }
 

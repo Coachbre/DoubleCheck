@@ -91,7 +91,6 @@ namespace DoubleCheck.Repositories
                                         PantryList.id, 
                                         PantryList.[name],
                                         PantryList.UserId,
-                                        [User].firebaseUserId
                                 FROM PantryList
                                         LEFT JOIN [User]
                                         ON PantryList.UserId = [User].id
@@ -120,7 +119,7 @@ namespace DoubleCheck.Repositories
             }
         }
 
-        public void Add(PantryList pantryList)
+        public void AddDefault(PantryList pantryList)
         {
             using (var conn = Connection)
             {
@@ -128,12 +127,12 @@ namespace DoubleCheck.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                                INSERT INTO PantryList 
+                              INSERT INTO PantryList 
                               ([name], userId)
                               OUTPUT INSERTED.ID
                               VALUES ('Kitchen', @userId)";
 
-                    DbUtils.AddParameter(cmd, "'Kitchen'", pantryList.Name);
+// name (kitchen) doesnt need an add parameter since its given a value within the sql command
                     DbUtils.AddParameter(cmd, "@userId", pantryList.UserId);
 
                     pantryList.Id = (int)cmd.ExecuteScalar();

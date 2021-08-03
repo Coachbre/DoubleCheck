@@ -1,0 +1,14 @@
+body { min-height: 100vh; }
+
+.pantryList {
+background-image: url("../../images/blueBackground.jpg");
+display: flex;
+flex-shrink: inherit;
+margin-bottom: 200em;
+  background-repeat: no-repeat; 
+  background-size:cover
+}
+
+.container {
+    margin-top: 10em;
+}
