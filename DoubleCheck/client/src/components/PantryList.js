@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button, CardBody, Card } from "reactstrap";
 import PantryCard from './PantryCard';
 import { getByUser, deletePantry } from "../modules/pantryManager";
+import './styling/pantryList.css';
 
 const PantryList = () => {
     const [pantries, setPantries] = useState([]);
@@ -26,6 +27,7 @@ const PantryList = () => {
     }, []);
 
     return (
+        <div className="pantryList">
         <div className="container">
             <div className="row justify-content-center">
                 {pantries.map((pantry) => {
@@ -49,6 +51,7 @@ const PantryList = () => {
                 Create A New Pantry
             </Link> */}
         </div >
+        </div>
     );
 };
 

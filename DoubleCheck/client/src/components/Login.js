@@ -19,11 +19,11 @@ export default function Login() {
 
     return (
         <body className="loginPage">
-            <div className="loginForm">
+            <div className="m">
         <Form onSubmit={loginSubmit} className="">
             {/* <img className="logo1" src={logo1} alt="logo1" /> */}
             
-            <fieldset className="loginSection">
+            <fieldset>
                 <h3>User Login</h3>
                 <FormGroup>
                     <Label for="email">Email</Label>
@@ -39,8 +39,9 @@ export default function Login() {
                     <Button className="loginbutton">Login</Button>
                 </FormGroup>
                 <em>
-                    Don't have an account? <Link to="register">Sign up here</Link>
-                </em>
+                    Don't have an account? 
+                    <Link to="register">Sign up here</Link>
+                    </em>
             </fieldset>
         </Form>
         </div>

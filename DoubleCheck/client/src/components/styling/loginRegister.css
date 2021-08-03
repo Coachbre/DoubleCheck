@@ -1,24 +1,13 @@
+/* html { min-height: 100vh; } */
+
 .loginPage {
-/* display: flex !important; */
-background-image: url("../../images/blueBackground.jpg");
+background-image: url("../../images/purpleBackground.jpg");
 display: flex;
-flex-shrink: inherit;
-  background-position: center;
   background-repeat: no-repeat; 
   background-size:cover
 }
 
-.loginForm {
-    width: 25em;
-    height: 60em;
-    /* margin-left: 42em; */
-    align-items: center;
-   
-}
-
-.loginSection {
- margin: auto;
-  /* width: 50%; */
-  border: 3px solid rgb(212, 131, 8);
-  padding: 100px;
+form {
+  margin: 4em;
+  /* margin-top: 5em; */
 }
