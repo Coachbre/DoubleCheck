@@ -1,14 +1,26 @@
-body { min-height: 100vh; }
-
-.pantryList {
+body { min-height: 100vh; 
 background-image: url("../../images/pantryListBackground.jpg");
-display: flex;
-flex-shrink: inherit;
-margin-bottom: 200em;
-  background-repeat: no-repeat; 
-  background-size:cover
+background-repeat: no-repeat; 
+background-size:cover
+}
+.pantryList {
+min-height: 20rem;
 }
 
 .container {
-    margin-top: 37.35em;
+  width: 40%
+}
+
+.justify-content-center {
+    justify-content: space-around !important;
+}
+
+.card-body {
+    padding: 0rem !important;
+}
+
+.row {
+    margin-top: 3.5em;
+        display: flex;
+    flex-direction: column;
 }
