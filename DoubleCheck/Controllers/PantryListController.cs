@@ -54,9 +54,9 @@ namespace DoubleCheck.Controllers
                 {
                     PantryList name = new PantryList() { UserId = user.Id };
                     _pantryListRepository.AddDefault(name);
+                    pantries = _pantryListRepository.GetByUser(user.FirebaseUserId);
                 }
-                pantries = _pantryListRepository.GetByUser(user.FirebaseUserId);
-                return Ok(pantries);
+                    return Ok(pantries);             
             }
         }
 

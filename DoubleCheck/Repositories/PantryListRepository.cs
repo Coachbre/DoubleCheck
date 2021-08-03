@@ -91,7 +91,6 @@ namespace DoubleCheck.Repositories
                                         PantryList.id, 
                                         PantryList.[name],
                                         PantryList.UserId,
-                                        [User].firebaseUserId
                                 FROM PantryList
                                         LEFT JOIN [User]
                                         ON PantryList.UserId = [User].id

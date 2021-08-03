@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using DoubleCheck.Models;
 using DoubleCheck.Repositories;
-using System.Security.Claims;
 
 namespace DoubleCheck.Controllers
 {
@@ -12,11 +11,10 @@ namespace DoubleCheck.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
-        private readonly IPantryListRepository _pantryListRepository;
-        public UserController(IUserRepository userRepository, IPantryListRepository pantryListRepository)
+        //private readonly IPantryListRepository _pantryListRepository;
+        public UserController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            _pantryListRepository = pantryListRepository;
         }
 
         [HttpGet("{firebaseUserId}")]
@@ -45,9 +43,6 @@ namespace DoubleCheck.Controllers
         public IActionResult Register(User user)
         {
             _userRepository.Add(user);
-
-            //PantryList pantryList = new PantryList() { Id = user.Id };
-            //_pantryListRepository.AddDefault(pantryList);
 
             return 
                 CreatedAtAction(
