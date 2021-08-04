@@ -90,7 +90,7 @@ namespace DoubleCheck.Repositories
                                 SELECT 
                                         PantryList.id, 
                                         PantryList.[name],
-                                        PantryList.UserId,
+                                        PantryList.UserId
                                 FROM PantryList
                                         LEFT JOIN [User]
                                         ON PantryList.UserId = [User].id
@@ -119,6 +119,7 @@ namespace DoubleCheck.Repositories
             }
         }
 
+
         public void AddDefault(PantryList pantryList)
         {
             using (var conn = Connection)
@@ -130,7 +131,10 @@ namespace DoubleCheck.Repositories
                               INSERT INTO PantryList 
                               ([name], userId)
                               OUTPUT INSERTED.ID
-                              VALUES ('Kitchen', @userId)";
+                              VALUES 
+                                    ('Fridge', @userId),
+                                    ('Freezer', @userId),
+                                    ('Pantry', @userId)";
 
 // name (kitchen) doesnt need an add parameter since its given a value within the sql command
                     DbUtils.AddParameter(cmd, "@userId", pantryList.UserId);

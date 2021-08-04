@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory, useParams } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { addFoodItem } from "../modules/foodItemManager";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './styling/addAndEditItems.css';
 
 const AddFoodItemForm = () => {
     const [modal, setModal] = useState(false);
@@ -35,35 +35,38 @@ const AddFoodItemForm = () => {
 
     return (
         <>
-                    <Form>
-                        <FormGroup>
-                            <Label for="name">Name:</Label>
-                            <Input type="text" name="name" id="name" placeholder="Item Name"
-                                required value={foodItem.name}
-                                onChange={handleInputChange} />
-                        </FormGroup>
+            <body className="addItemBody">
+            <h3>Add an item!</h3>
+            <Form>
+                <FormGroup>
+                    <Label for="name">What are you adding?</Label>
+                    <Input type="text" name="name" id="name" placeholder="Item Name"
+                        required value={foodItem.name}
+                        onChange={handleInputChange} />
+                </FormGroup>
 
-                        <FormGroup>
-                            <Label for="quantity">Quantity:</Label>
-                            <Input type="number" name="quantity" id="quantity" placeholder="Quantity"
-                                required value={foodItem.quantity}
-                                onChange={handleInputChange} />
-                        </FormGroup>
+                <FormGroup>
+                    <Label for="quantity">How many?</Label>
+                    <Input type="number" name="quantity" id="quantity" placeholder="Quantity"
+                        required value={foodItem.quantity}
+                        onChange={handleInputChange} />
+                </FormGroup>
 
-                        <FormGroup>
-                            <Label for="notes">Notes:</Label>
-                            <Input type="textarea" name="notes" id="notes" placeholder="Notes"
-                                required value={foodItem.notes}
-                                onChange={handleInputChange} />
-                        </FormGroup>
+                <FormGroup>
+                    <Label for="notes">Notes:</Label>
+                    <Input type="textarea" name="notes" id="notes" placeholder="Notes"
+                        required value={foodItem.notes}
+                        onChange={handleInputChange} />
+                </FormGroup>
 
-                        <FormGroup>
-                            <Button className="btn btn-primary" onClick={handleSave} pantryListId={pantryListId}>Save</Button>
-                        </FormGroup>
-                        <Link to={`/${pantryListId}`}>
-                            <Button>Cancel</Button>
-                        </Link>
-                    </Form>
+                <FormGroup>
+                    <Button className="btn btn-primary" onClick={handleSave} pantryListId={pantryListId}>Save</Button>
+                </FormGroup>
+                <Link to={`/${pantryListId}`}>
+                    <Button>Cancel</Button>
+                </Link>
+            </Form>
+        </body>
         </>
     );
 };

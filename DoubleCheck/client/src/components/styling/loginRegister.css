@@ -2,7 +2,7 @@
 
 /*LOGIN CSS */
 .loginPage {
-background-image: url("../../images/purpleBackground.jpg");
+background-image: url("../../images/purpleBackground.jpg") !important;
 display: flex;
   background-repeat: no-repeat; 
   background-size:cover
@@ -17,13 +17,13 @@ form {
 .loginSection {
   margin-top: -3em;
   min-width: 21em;
-  margin-left: 3em;
+  margin-left: 1em;
 }
 
 
 /* REGISTER CSS */
 .registerPage {
-background-image: url("../../images/blueBackground.jpg");
+background-image: url("../../images/blueBackground.jpg") !important;
 display: flex;
   background-repeat: no-repeat; 
   background-size:cover;
@@ -39,5 +39,5 @@ form {
 .registerSection {
   margin-top: -3em;
   min-width: 21em;
-  margin-left: 3em;
+  margin-left: 1em;
 }

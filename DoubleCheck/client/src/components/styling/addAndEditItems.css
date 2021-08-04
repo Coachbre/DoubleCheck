@@ -1,0 +1,12 @@
+.editItemBody { min-height: 100vh; 
+background-image: url("../../images/pantryListBackground.jpg") !important;
+background-repeat: no-repeat; 
+background-size:cover
+}
+
+.addItemBody { min-height: 100vh; 
+background-image: url("../../images/greenVeggie.jpeg") !important;
+background-repeat: no-repeat; 
+background-size:cover
+
+}

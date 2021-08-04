@@ -1,10 +1,9 @@
 import React from "react";
 import { Button, CardBody, Card } from "reactstrap";
 import { Link } from "react-router-dom";
+import './styling/foodItemList.css';
 
-
-const FoodItemCard = ({ foodItem, handleDelete }) => {
-
+const FoodItemCard = ({ foodItem, handleDelete, pantryListId }) => {
     return (
         <Card>
             <CardBody>
@@ -13,14 +12,13 @@ const FoodItemCard = ({ foodItem, handleDelete }) => {
                     <td>{foodItem.name}: {foodItem?.quantity}</td>
                 </div>
                 <div>
-                    <td>Notes: {foodItem.notes}</td>
+                    <td>Note: {foodItem.notes}</td>
                 </div>
-                <div>
-                    <Link to={`/${foodItem.id}/Update`}>
+                <div className="itemCardButtons">
+                    <Link to={`/${pantryListId}/${foodItem.id}/Update`}>
                     <Button>Update</Button>
                     </Link>
-                </div>
-                <div>
+              
                     <Button onClick={() => handleDelete(foodItem.id)}>Delete</Button>
                 </div>
             </CardBody>
