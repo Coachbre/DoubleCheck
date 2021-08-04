@@ -47,6 +47,7 @@ const FoodItemList = () => {
                                 {foodItems.map((foodItem) => {
                                     return (
                                         <FoodItemCard foodItem={foodItem} key={foodItem.id}
+                                            pantryListId={pantryListId} key={pantryListId.id}
                                             handleDelete={handleDelete} />
                                         // ^ these are props, which allows fooditemcard.js file to access objects/functions
                                     )

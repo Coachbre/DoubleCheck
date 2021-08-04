@@ -17,7 +17,7 @@ form {
 .loginSection {
   margin-top: -3em;
   min-width: 21em;
-  margin-left: 3em;
+  margin-left: 1em;
 }
 
 
@@ -39,5 +39,5 @@ form {
 .registerSection {
   margin-top: -3em;
   min-width: 21em;
-  margin-left: 3em;
+  margin-left: 1em;
 }

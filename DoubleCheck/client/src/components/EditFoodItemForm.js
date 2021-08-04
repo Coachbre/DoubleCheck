@@ -5,7 +5,7 @@ import { editFoodItem, getFoodItemById } from "../modules/foodItemManager";
 import './styling/addAndEditItems.css'; 
 
 const EditFoodItemForm = () => {
-    const { foodItemId } = useParams();
+    const { foodItemId, pantryListId } = useParams();
     const history = useHistory();
 
     const [foodItem, setFoodItem] = useState({});
@@ -65,7 +65,7 @@ const EditFoodItemForm = () => {
 
             
                 <Button className="btn btn-primary" onClick={handleEdit} disabled={isLoading}>Save</Button>
-                    {/* <Button className="btn btn-primary"><Link to={`/${pantry.id}`}>Back</Link></Button> */}
+                    <Button className="btn btn-primary"><Link to={`/${pantryListId}`}>Back</Link></Button>
               
             </Form>
             </div>
