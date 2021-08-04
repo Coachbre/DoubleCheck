@@ -34,11 +34,11 @@ const FoodItemList = () => {
                     <div className="listMenu">
 
                         <Link to={`${pantryListId}/NewItem`}>
-                            <Button>Add To Your Kitchen!</Button>
+                            <Button>Add Items!</Button>
                         </Link>
 
                         <Link to="/">
-                            <Button>View All Pantries</Button>
+                            <Button>View All Sections</Button>
                         </Link>
                     </div>
                     <div className="row justify-content-center">

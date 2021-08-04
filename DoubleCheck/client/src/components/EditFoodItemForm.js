@@ -57,8 +57,8 @@ const EditFoodItemForm = () => {
                     </FormGroup>
 
                     <FormGroup>
-                        <Label htmlFor="notes">Notes:</Label>
-                        <Input type="textarea" name="notes" id="notes" placeholder="Notes"
+                        <Label htmlFor="notes">Note:</Label>
+                        <Input type="textarea" name="notes" id="notes" placeholder="Note"
                             defaultValue={foodItem.notes}
                             onChange={handleInputChange} />
                     </FormGroup>

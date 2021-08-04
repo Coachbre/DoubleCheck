@@ -39,14 +39,14 @@ const AddFoodItemForm = () => {
             <h3>Add an item!</h3>
             <Form>
                 <FormGroup>
-                    <Label for="name">Name:</Label>
+                    <Label for="name">What are you adding?</Label>
                     <Input type="text" name="name" id="name" placeholder="Item Name"
                         required value={foodItem.name}
                         onChange={handleInputChange} />
                 </FormGroup>
 
                 <FormGroup>
-                    <Label for="quantity">Quantity:</Label>
+                    <Label for="quantity">How many?</Label>
                     <Input type="number" name="quantity" id="quantity" placeholder="Quantity"
                         required value={foodItem.quantity}
                         onChange={handleInputChange} />

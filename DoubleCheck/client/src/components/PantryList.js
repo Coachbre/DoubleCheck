@@ -29,18 +29,18 @@ const PantryList = () => {
     return (
         <>
         <body>
-            <h3>Check what's in your kitchen!</h3>
+            <h3>Check whats in your kitchen!</h3>
         <div className="pantryList">
         <div className="container">
             <div className="row justify-content-center">
                 {pantries.map((pantry) => {
                     return (
                         <Card>
-                            <Link to={`/${pantry.id}`}>
                                 <CardBody>
+                            <Link to={`/${pantry.id}`}>
                                     <PantryCard pantry={pantry} key={pantry.id} />
-                                </CardBody>
                             </Link>
+                                </CardBody>
                             {/* <Button onClick={deleteSelectedPantry}>Delete</Button> */}
                         </Card>
                         // ^ pantry={pantry} is a prop, which allows the PantryList.js file to access objects/functions
