@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { NavLink as RRNavLink, Link } from "react-router-dom";
 import {
@@ -11,13 +10,14 @@ import {
     NavLink
 } from 'reactstrap';
 import { logout } from "../modules/authManager";
+import './styling/header.css';
 
 export default function Header({ isLoggedIn }) {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
     return (
-        <div>
+        <div className="headerStyle">
             <Navbar color="dark" dark expand="md">
                 <NavbarBrand tag={RRNavLink} to="/">DOUBLE CHECK</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
