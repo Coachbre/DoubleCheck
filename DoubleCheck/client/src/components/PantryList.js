@@ -29,6 +29,7 @@ const PantryList = () => {
     return (
         <>
         <body>
+            <h3>Check what's in your kitchen!</h3>
         <div className="pantryList">
         <div className="container">
             <div className="row justify-content-center">

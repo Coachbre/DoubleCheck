@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory, useParams } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { editFoodItem, getFoodItemById } from "../modules/foodItemManager";
-import './styling/addAndEditItems.css'; 
+import './styling/addAndEditItems.css';
 
 const EditFoodItemForm = () => {
     const { foodItemId, pantryListId } = useParams();
@@ -28,7 +28,7 @@ const EditFoodItemForm = () => {
         event.preventDefault();
         setIsLoading(true);
         let newFoodItem = { ...foodItem };
-        
+
         editFoodItem(newFoodItem).then(() => history.push(`/${foodItem.pantryListId}`))
     }
 
@@ -39,35 +39,38 @@ const EditFoodItemForm = () => {
 
     return (
         <>
-        <div className="editAndAddBody">
-            <h3>Update {foodItem.name}</h3>
-            <Form>
-                <FormGroup>
-                    <Label htmlFor="name">Name:</Label>
-                    <Input type="text" name="name" id="name" placeholder="Item name"
-                        defaultValue={foodItem.name}
-                        onChange={handleInputChange} />
-                </FormGroup>
+            <div className="editItemBody">
+                <h3>Update {foodItem.name}</h3>
+                <Form>
+                    <FormGroup>
+                        <Label htmlFor="name">Name:</Label>
+                        <Input type="text" name="name" id="name" placeholder="Item name"
+                            defaultValue={foodItem.name}
+                            onChange={handleInputChange} />
+                    </FormGroup>
 
-                <FormGroup>
-                    <Label htmlFor="quantity">Quantity:</Label>
-                    <Input type="number" name="quantity" id="quantity" placeholder="Quantity"
-                        defaultValue={foodItem.quantity}
-                        onChange={handleInputChange} />
-                </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="quantity">Quantity:</Label>
+                        <Input type="number" name="quantity" id="quantity" placeholder="Quantity"
+                            defaultValue={foodItem.quantity}
+                            onChange={handleInputChange} />
+                    </FormGroup>
 
-                <FormGroup>
-                    <Label htmlFor="notes">Notes:</Label>
-                    <Input type="textarea" name="notes" id="notes" placeholder="Notes"
-                        defaultValue={foodItem.notes}
-                        onChange={handleInputChange} />
-                </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="notes">Notes:</Label>
+                        <Input type="textarea" name="notes" id="notes" placeholder="Notes"
+                            defaultValue={foodItem.notes}
+                            onChange={handleInputChange} />
+                    </FormGroup>
 
-            
-                <Button className="btn btn-primary" onClick={handleEdit} disabled={isLoading}>Save</Button>
-                    <Button className="btn btn-primary"><Link to={`/${pantryListId}`}>Back</Link></Button>
-              
-            </Form>
+                    <FormGroup>
+                        <Button className="btn btn-primary" onClick={handleEdit} disabled={isLoading}>Save</Button>
+                    </FormGroup>
+
+                    <Link to={`/${pantryListId}`}>
+                        <Button className="btn btn-primary">Cancel</Button>
+                    </Link>
+                </Form>
             </div>
         </>
     );
