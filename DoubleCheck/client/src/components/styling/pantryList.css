@@ -1,5 +1,5 @@
 body { min-height: 100vh; 
-background-image: url("../../images/pantryListBackground.jpg");
+background-image: url("../../images/greenVeggie.jpeg") !important;
 background-repeat: no-repeat; 
 background-size:cover
 }
@@ -16,7 +16,7 @@ min-height: 20rem;
 }
 
 .card-body {
-    padding: 0rem !important;
+    padding-top: .5em;
 }
 
 .row {

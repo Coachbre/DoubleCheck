@@ -27,6 +27,8 @@ const PantryList = () => {
     }, []);
 
     return (
+        <>
+        <body>
         <div className="pantryList">
         <div className="container">
             <div className="row justify-content-center">
@@ -52,6 +54,8 @@ const PantryList = () => {
             </Link> */}
         </div >
         </div>
+        </body>
+        </>
     );
 };
 

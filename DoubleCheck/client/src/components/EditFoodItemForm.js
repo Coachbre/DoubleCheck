@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory, useParams } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { editFoodItem, getFoodItemById } from "../modules/foodItemManager";
+import './styling/addAndEditItems.css'; 
 
 const EditFoodItemForm = () => {
     const { foodItemId } = useParams();
@@ -38,6 +39,7 @@ const EditFoodItemForm = () => {
 
     return (
         <>
+        <div className="editAndAddBody">
             <h3>Update {foodItem.name}</h3>
             <Form>
                 <FormGroup>
@@ -63,8 +65,10 @@ const EditFoodItemForm = () => {
 
             
                 <Button className="btn btn-primary" onClick={handleEdit} disabled={isLoading}>Save</Button>
+                    {/* <Button className="btn btn-primary"><Link to={`/${pantry.id}`}>Back</Link></Button> */}
               
             </Form>
+            </div>
         </>
     );
 };

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Button} from 'reactstrap';
+import { Button } from 'reactstrap';
 import FoodItemCard from './FoodItemCard';
 import { getAllFoodItems, deleteFoodItem } from "../modules/foodItemManager";
-
+import './styling/foodItemList.css';
 
 
 
@@ -27,29 +27,37 @@ const FoodItemList = () => {
 
     return (
         <>
-    
 
+            <body className="foodItemList">
 
-            <div className="container">
+                <div className="container">
+                    <div className="listMenu">
 
-                <Link to={`${pantryListId}/NewItem`}>
-                    <Button>Add To Your Kitchen!</Button>
-                </Link>
-                <div className="row justify-content-center">
-                    <table>
-                        <tr>
-                            {foodItems.map((foodItem) => {
-                                return (
-                                    <FoodItemCard foodItem={foodItem} key={foodItem.id}
-                                        handleDelete={handleDelete} />
-                                    // ^ these are props, which allows fooditemcard.js file to access objects/functions
-                                )
-                            }
-                            )}
-                        </tr>
-                    </table>
+                        <Link to={`${pantryListId}/NewItem`}>
+                            <Button>Add To Your Kitchen!</Button>
+                        </Link>
+
+                        <Link to="/">
+                            <Button>View All Pantries</Button>
+                        </Link>
+                    </div>
+                    <div className="row justify-content-center">
+                        <table>
+                            <tr>
+                                {foodItems.map((foodItem) => {
+                                    return (
+                                        <FoodItemCard foodItem={foodItem} key={foodItem.id}
+                                            handleDelete={handleDelete} />
+                                        // ^ these are props, which allows fooditemcard.js file to access objects/functions
+                                    )
+                                }
+                                )}
+                            </tr>
+                        </table>
+                    </div>
+
                 </div>
-            </div>
+            </body>
         </>
     );
 };

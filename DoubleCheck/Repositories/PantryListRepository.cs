@@ -90,7 +90,7 @@ namespace DoubleCheck.Repositories
                                 SELECT 
                                         PantryList.id, 
                                         PantryList.[name],
-                                        PantryList.UserId,
+                                        PantryList.UserId
                                 FROM PantryList
                                         LEFT JOIN [User]
                                         ON PantryList.UserId = [User].id

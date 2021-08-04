@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory, useParams } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { addFoodItem } from "../modules/foodItemManager";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './styling/addAndEditItems.css';
 
 const AddFoodItemForm = () => {
     const [modal, setModal] = useState(false);
