@@ -54,7 +54,7 @@ const AddFoodItemForm = () => {
 
                 <FormGroup>
                     <Label for="notes">Notes:</Label>
-                    <Input type="textarea" name="notes" id="notes" placeholder="Notes"
+                    <Input type="textarea" name="notes" id="notes" placeholder="Package type, recipes, reminders?"
                         required value={foodItem.notes}
                         onChange={handleInputChange} />
                 </FormGroup>

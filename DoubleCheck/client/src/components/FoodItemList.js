@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Button } from 'reactstrap';
+import { Button, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import FoodItemCard from './FoodItemCard';
 import { getAllFoodItems, deleteFoodItem } from "../modules/foodItemManager";
 import './styling/foodItemList.css';
-
+import { Modal } from "bootstrap";
 
 
 const FoodItemList = () => {
     const [foodItems, setFoodItems] = useState([]);
-
     const { pantryListId } = useParams();
+
 
     const getItems = () => {
         return getAllFoodItems(pantryListId).then((res) => setFoodItems(res));
@@ -56,7 +56,6 @@ const FoodItemList = () => {
                             </tr>
                         </table>
                     </div>
-
                 </div>
             </body>
         </>

@@ -8,7 +8,7 @@ const EditFoodItemForm = () => {
     const { foodItemId, pantryListId } = useParams();
     const history = useHistory();
 
-    const [foodItem, setFoodItem] = useState({});
+    const [foodItem, setFoodItem] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     // initial state set to false
 
@@ -58,7 +58,7 @@ const EditFoodItemForm = () => {
 
                     <FormGroup>
                         <Label htmlFor="notes">Note:</Label>
-                        <Input type="textarea" name="notes" id="notes" placeholder="Note"
+                        <Input type="textarea" name="notes" id="notes" placeholder="Package type, recipes, reminders?"
                             defaultValue={foodItem.notes}
                             onChange={handleInputChange} />
                     </FormGroup>
