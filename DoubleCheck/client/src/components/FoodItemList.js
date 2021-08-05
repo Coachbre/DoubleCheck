@@ -27,34 +27,36 @@ const FoodItemList = () => {
 
     return (
         <>
+            <body>
+                <div class="w3-container w3-center w3-animate-right">
+                    <div className="foodItemList">
+                        <div className="container">
+                            <div className="listMenu">
 
-            <body className="foodItemList">
+                                <Link to={`${pantryListId}/NewItem`}>
+                                    <Button>Add Items!</Button>
+                                </Link>
 
-                <div className="container">
-                    <div className="listMenu">
-
-                        <Link to={`${pantryListId}/NewItem`}>
-                            <Button>Add Items!</Button>
-                        </Link>
-
-                        <Link to="/">
-                            <Button>View All Sections</Button>
-                        </Link>
-                    </div>
-                    <div className="row justify-content-center">
-                        <table>
-                            <tr>
-                                {foodItems.map((foodItem) => {
-                                    return (
-                                        <FoodItemCard foodItem={foodItem} key={foodItem.id}
-                                            pantryListId={pantryListId} key={pantryListId.id}
-                                            handleDelete={handleDelete} />
-                                        // ^ these are props, which allows fooditemcard.js file to access objects/functions
-                                    )
-                                }
-                                )}
-                            </tr>
-                        </table>
+                                <Link to="/">
+                                    <Button>View All Sections</Button>
+                                </Link>
+                            </div>
+                            <div className="row justify-content-center">
+                                <table>
+                                    <tr>
+                                        {foodItems.map((foodItem) => {
+                                            return (
+                                                <FoodItemCard foodItem={foodItem} key={foodItem.id}
+                                                    pantryListId={pantryListId} key={pantryListId.id}
+                                                    handleDelete={handleDelete} />
+                                                // ^ these are props, which allows fooditemcard.js file to access objects/functions
+                                            )
+                                        }
+                                        )}
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </body>
