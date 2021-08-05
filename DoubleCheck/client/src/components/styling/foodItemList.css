@@ -4,7 +4,7 @@ background-repeat: no-repeat;
 background-size:cover;
 margin-left: 0 !important;
 margin-right: 0 !important;
-
+    min-height: 50em;
 }
 
 .listMenu {

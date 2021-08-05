@@ -59,10 +59,10 @@ const AddFoodItemForm = () => {
                 </FormGroup>
 
                 <FormGroup>
-                    <Button className="btn btn-primary" onClick={handleSave} pantryListId={pantryListId}>Save</Button>
+                    <Button className="btn btn-primary" onClick={handleSave} pantryListId={pantryListId}>YES. New recipe OTW!</Button>
                 </FormGroup>
                 <Link to={`/${pantryListId}`}>
-                    <Button>Cancel</Button>
+                    <Button>NVM, the crisper is full</Button>
                 </Link>
             </Form>
         </body>

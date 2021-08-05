@@ -56,6 +56,7 @@ const FoodItemList = () => {
                                     </tr>
                                 </table>
                             </div>
+                            <footer></footer>
                         </div>
                     </div>
                 </div>
