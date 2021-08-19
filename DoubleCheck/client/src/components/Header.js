@@ -19,6 +19,7 @@ export default function Header({ isLoggedIn }) {
     return (
         <div className="headerStyle">
             <Navbar dark expand="md">
+                
                 <NavbarBrand tag={RRNavLink} to="/">DOUBLE CHECK</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
