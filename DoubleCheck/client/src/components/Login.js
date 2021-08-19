@@ -21,7 +21,6 @@ export default function Login() {
         <body className="loginPage">
             <div className="loginSection">
         <Form onSubmit={loginSubmit} className="">
-            {/* <img className="logo1" src={logo1} alt="logo1" /> */}
             
             <fieldset>
                 <h3>User Login</h3>

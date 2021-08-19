@@ -1,7 +1,10 @@
 .foodItemList { 
 background-image: url("../../images/greenBackground.jpeg") !important ;
 background-repeat: no-repeat; 
-background-size:cover
+background-size:cover;
+margin-left: 0 !important;
+margin-right: 0 !important;
+    min-height: 50em;
 }
 
 .listMenu {
@@ -35,4 +38,7 @@ background-size:cover
 .itemCardButtons {
     justify-content: space-between;
     display: flex;
+}
+.w3-container, .w3-panel {
+    padding: 0 !important;
 }

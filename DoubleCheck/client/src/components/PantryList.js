@@ -28,7 +28,7 @@ const PantryList = () => {
 
     return (
         <>
-        <body>
+        <body className="pantryListBody">
             <h3>Check whats in your kitchen!</h3>
         <div className="pantryList">
         <div className="container">

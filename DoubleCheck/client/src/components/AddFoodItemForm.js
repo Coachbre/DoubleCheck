@@ -5,8 +5,6 @@ import { addFoodItem } from "../modules/foodItemManager";
 import './styling/addAndEditItems.css';
 
 const AddFoodItemForm = () => {
-    const [modal, setModal] = useState(false);
-    const togglePopup = () => setModal(!modal);
 
     const history = useHistory();
     const { pantryListId } = useParams();
@@ -35,6 +33,7 @@ const AddFoodItemForm = () => {
 
     return (
         <>
+            <div class="w3-center w3-animate-top">
             <body className="addItemBody">
             <h3>Add an item!</h3>
             <Form>
@@ -60,13 +59,14 @@ const AddFoodItemForm = () => {
                 </FormGroup>
 
                 <FormGroup>
-                    <Button className="btn btn-primary" onClick={handleSave} pantryListId={pantryListId}>Save</Button>
+                    <Button className="btn btn-primary" onClick={handleSave} pantryListId={pantryListId}>YES. New recipe OTW!</Button>
                 </FormGroup>
                 <Link to={`/${pantryListId}`}>
-                    <Button>Cancel</Button>
+                    <Button>NVM, the crisper is full</Button>
                 </Link>
             </Form>
         </body>
+        </div>
         </>
     );
 };

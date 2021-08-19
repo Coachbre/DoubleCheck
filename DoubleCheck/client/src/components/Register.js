@@ -26,12 +26,14 @@ export default function Register() {
     };
 
     return (
+        <div class="w3-animate-right">
         <body className="registerPage">
             <div className="registerSection">
             <Form onSubmit={registerClick} className="form">
                 {/* <img className="logo1" src={logo1} alt="logo1" /> */}
 
                 <fieldset className="loginform">
+                        <h3>Register</h3>
                     <FormGroup>
                         <Label htmlFor="name">Name</Label>
                         <Input id="name" type="text" onChange={e => setName(e.target.value)} />
@@ -62,5 +64,6 @@ export default function Register() {
             </Form>
             </div>
         </body>
+        </div>
     );
 }
